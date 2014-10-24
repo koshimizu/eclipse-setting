@@ -1,30 +1,30 @@
-INFO  09:00:37.076 [main] (Pleiades) Pleiades 構成保管パス: C:\eclipse\configuration\jp.sourceforge.mergedoc.pleiades
-INFO  09:00:37.123 [pool-2-thread-1] (EclipseFiles) 前回のプラグイン更新最終時刻: 2014-10-21 14:27:56
-INFO  09:00:37.123 [pool-2-thread-1] (EclipseFiles) 今回のプラグイン更新最終時刻: 2014-10-21 14:27:56
-INFO  09:00:37.139 [main] (PleiadesConfig) Pleiades 構成ファイルをロードしました。
-INFO  09:00:37.154 [main] (Pleiades) Eclipse AOP 起動トランスフォーマーを開始します。Pleiades 起動オプション:null
-INFO  09:00:37.154 [pool-1-thread-5] (PropertySet) load  0.001 秒 -      5 エントリー org.eclipse.ui.ide.prefs
-INFO  09:00:37.154 [pool-1-thread-2] (PropertySet) load  0.002 秒 -     67 エントリー translation-exclude-package.properties
-INFO  09:00:37.154 [pool-1-thread-3] (PropertySet) load  0.011 秒 -    350 エントリー translation-regex.properties
-INFO  09:00:37.170 [pool-1-thread-3] (PropertySet) load  0.001 秒 -     16 エントリー translation-regex-through.properties
-INFO  09:00:37.232 [main] (LauncherEclipseTransformer) transform: org.eclipse.equinox.launcher.Main
-INFO  09:00:37.279 [main] (LauncherTransformer) アプリケーションの起動を開始しました。-clean:false
-INFO  09:00:37.279 [main] (LauncherTransformer) Pleiades AOP 起動トランスフォーマーを停止します。
-INFO  09:00:37.279 [main] (LauncherTransformer) Pleiades AOP 翻訳トランスフォーマーを開始します。
-INFO  09:00:37.342 [pool-1-thread-3] (ExcludeClassNameCache) load   19846 エントリー exclude-class.list
-INFO  09:00:37.482 [pool-1-thread-3] (TransformedClassCache) load     1173 エントリー transformed-class.cache
-INFO  09:00:37.654 [pool-1-thread-3] (ValueHashPropertySet) load  0.163 秒 -  50198 エントリー translation-cache.properties.zip
-INFO  09:00:37.654 [pool-1-thread-3] (CachePropertySet) load  0.010 秒 -   2957 エントリー mnemonic-cache.properties.zip
-INFO  09:00:38.808 [Start Level: Equinox Container: a07434c9-105b-0014-1a52-bf707d2ef231] (AbstractTranslationDictionary$1) load  0.411 秒 - 117054 エントリー translation.properties
-INFO  09:00:38.824 [Start Level: Equinox Container: a07434c9-105b-0014-1a52-bf707d2ef231] (AbstractTranslationDictionary$1) load  0.005 秒 - 117168 エントリー translation-multibytes-key.properties
-INFO  09:00:51.696 [main] (Analyses) Eclipse 始動完了 - 始動時間: 14.214 秒。-clean:false
-INFO  09:01:01.276 [pleiades-shutdown] (TransformedClassCache) load     1173 エントリー transformed-class.cache
-INFO  09:01:01.588 [pleiades-shutdown] (TransformedClassCache) store    1175 エントリー transformed-class.cache
-INFO  09:01:01.619 [pleiades-shutdown] (ExcludeClassNameCache) load   19846 エントリー exclude-class.list
-INFO  09:01:01.713 [pleiades-shutdown] (ExcludeClassNameCache) store  19864 エントリー exclude-class.list
-INFO  09:01:01.806 [pleiades-shutdown] (PropertySet) load  0.102 秒 -  50198 エントリー translation-cache.properties.zip
-INFO  09:01:02.149 [pleiades-shutdown] (ValueHashPropertySet) store 0.331 秒 -  54294 エントリー translation-cache.properties.zip
-INFO  09:01:02.149 [pleiades-shutdown] (CachePropertySet) 翻訳キャッシュ・プロパティーを更新しました。
-INFO  09:01:02.149 [pleiades-shutdown] (PropertySet) load  0.004 秒 -   2957 エントリー mnemonic-cache.properties.zip
-INFO  09:01:02.165 [pleiades-shutdown] (CachePropertySet) store 0.009 秒 -   3236 エントリー mnemonic-cache.properties.zip
-INFO  09:01:02.165 [pleiades-shutdown] (CachePropertySet) ニーモニック変換キャッシュ・プロパティーを更新しました。
+INFO  10:51:49.582 [main] (Pleiades) Pleiades 構成保管パス: C:\eclipse\configuration\jp.sourceforge.mergedoc.pleiades
+INFO  10:51:49.629 [pool-2-thread-1] (EclipseFiles) 前回のプラグイン更新最終時刻: 2014-10-21 14:27:56
+INFO  10:51:49.629 [pool-2-thread-1] (EclipseFiles) 今回のプラグイン更新最終時刻: 2014-10-21 14:27:56
+INFO  10:51:49.660 [main] (PleiadesConfig) Pleiades 構成ファイルをロードしました。
+INFO  10:51:49.660 [main] (Pleiades) Eclipse AOP 起動トランスフォーマーを開始します。Pleiades 起動オプション:null
+INFO  10:51:49.676 [pool-1-thread-2] (PropertySet) load  0.002 秒 -     67 エントリー translation-exclude-package.properties
+INFO  10:51:49.676 [pool-1-thread-5] (PropertySet) load  0.000 秒 -      5 エントリー org.eclipse.ui.ide.prefs
+INFO  10:51:49.691 [pool-1-thread-3] (PropertySet) load  0.016 秒 -    350 エントリー translation-regex.properties
+INFO  10:51:49.691 [pool-1-thread-3] (PropertySet) load  0.001 秒 -     16 エントリー translation-regex-through.properties
+INFO  10:51:49.754 [main] (LauncherEclipseTransformer) transform: org.eclipse.equinox.launcher.Main
+INFO  10:51:49.801 [main] (LauncherTransformer) アプリケーションの起動を開始しました。-clean:false
+INFO  10:51:49.801 [main] (LauncherTransformer) Pleiades AOP 起動トランスフォーマーを停止します。
+INFO  10:51:49.816 [main] (LauncherTransformer) Pleiades AOP 翻訳トランスフォーマーを開始します。
+INFO  10:51:49.879 [pool-1-thread-3] (ExcludeClassNameCache) load   19864 エントリー exclude-class.list
+INFO  10:51:50.050 [pool-1-thread-3] (TransformedClassCache) load     1175 エントリー transformed-class.cache
+INFO  10:51:50.191 [pool-1-thread-3] (ValueHashPropertySet) load  0.140 秒 -  54294 エントリー translation-cache.properties.zip
+INFO  10:51:50.206 [pool-1-thread-3] (CachePropertySet) load  0.010 秒 -   3236 エントリー mnemonic-cache.properties.zip
+INFO  10:51:57.946 [main] (Analyses) Eclipse 始動完了 - 始動時間: 7.896 秒。-clean:false
+INFO  12:04:50.215 [main] (AbstractTranslationDictionary$1) load  0.266 秒 - 117054 エントリー translation.properties
+INFO  12:04:50.231 [main] (AbstractTranslationDictionary$1) load  0.003 秒 - 117168 エントリー translation-multibytes-key.properties
+INFO  18:42:52.785 [pleiades-shutdown] (TransformedClassCache) load     1175 エントリー transformed-class.cache
+INFO  18:42:53.071 [pleiades-shutdown] (TransformedClassCache) store    1199 エントリー transformed-class.cache
+INFO  18:42:53.087 [pleiades-shutdown] (ExcludeClassNameCache) load   19864 エントリー exclude-class.list
+INFO  18:42:53.181 [pleiades-shutdown] (ExcludeClassNameCache) store  20584 エントリー exclude-class.list
+INFO  18:42:53.290 [pleiades-shutdown] (PropertySet) load  0.110 秒 -  54294 エントリー translation-cache.properties.zip
+INFO  18:42:53.586 [pleiades-shutdown] (ValueHashPropertySet) store 0.300 秒 -  56006 エントリー translation-cache.properties.zip
+INFO  18:42:53.586 [pleiades-shutdown] (CachePropertySet) 翻訳キャッシュ・プロパティーを更新しました。
+INFO  18:42:53.602 [pleiades-shutdown] (PropertySet) load  0.007 秒 -   3236 エントリー mnemonic-cache.properties.zip
+INFO  18:42:53.602 [pleiades-shutdown] (CachePropertySet) store 0.010 秒 -   3348 エントリー mnemonic-cache.properties.zip
+INFO  18:42:53.617 [pleiades-shutdown] (CachePropertySet) ニーモニック変換キャッシュ・プロパティーを更新しました。
