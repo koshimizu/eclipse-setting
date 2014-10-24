@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<fragment>
+	<extension point="com.orangevolt.eclipse.xslt.outlineconfiguration">
+		<grammar
+			id="com.orangevolt.eclipse.xslt.editor.outline.configuration.docbook"
+			name="Orangevolt DocBook Outline Configuration"
+			rootelement="book|part|article">			
+			<element name="book" label="${title}|${@label}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-docbook-book-16.png"/>
+			<element name="part" label="${title}|${@label}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-docbook-book-16.png"/>
+			<element name="article" label="${title}|${articleinfo/title}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-docbook-article-16.png"/>
+			<element name="preface" label="${title}|${@xreflabel}|${@id}|Preface" icon="icons/outline/docbook/cong-subsection-16.png"/>
+			<element name="chapter" label="${title}|${@label}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-subsection-16.png"/>
+			<element name="appendix" label="${title}|${@label}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-summary-16.png"/>
+			<element name="glossary" label="${title}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-summary-16.png"/>
+			<element name="section" label="${title}|${@label}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-subsection-16.png"/>
+			<element name="simplesect" label="${title}|${@xreflabel}|@id}" icon="icons/outline/docbook/cong-subsection-16.png"/>
+			<element name="sect1" label="${title}|${@label}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-subsection-16.png"/>
+			<element name="sect2" label="${title}|${@label}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-subsection-16.png"/>
+			<element name="sect3" label="${title}|${@label}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-subsection-16.png"/>
+			<element name="sect4" label="${title}|${@label}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-subsection-16.png"/>
+			<element name="sect5" label="${title}|${@label}|${@xreflabel}|${@id}" icon="icons/outline/docbook/cong-subsection-16.png"/>
+			<element name="index" label="${title}|${@xreflabel}|${@id}"  icon="icons/outline/docbook/cong-subsection-16.png"/>
+		</grammar>
+	</extension>
+</fragment>

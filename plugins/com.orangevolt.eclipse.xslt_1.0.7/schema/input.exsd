@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.orangevolt.eclipse.xslt">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.orangevolt.eclipse.xslt" id="input" name="com.orangevolt.eclipse.xslt.input"/>
+      </appInfo>
+      <documentation>
+         the input extension defines an xslt input provider (of type dom,sax,stream for example) including the provider configuration parameters (validating, xinclude allowed and so on)
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <complexType>
+         <sequence>
+            <element ref="input" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="input">
+      <complexType>
+         <sequence>
+            <element ref="classpath" minOccurs="0" maxOccurs="1"/>
+            <element ref="description" minOccurs="0" maxOccurs="1"/>
+            <element ref="attributes" minOccurs="0" maxOccurs="1"/>
+            <element ref="features" minOccurs="0" maxOccurs="1"/>
+            <element ref="properties" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="type" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="dom">
+                  </enumeration>
+                  <enumeration value="sax">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="label" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="description" type="string">
+   </element>
+
+   <element name="classpath">
+      <complexType>
+         <sequence>
+            <element ref="library"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="library">
+      <annotation>
+         <appInfo>
+            <meta.element labelAttribute="path"/>
+         </appInfo>
+      </annotation>
+      <complexType>
+         <attribute name="path" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="bundle" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="description" type="string">
+   </element>
+
+   <element name="features">
+      <annotation>
+         <documentation>
+            this element groups the sax parser factory features.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="feature" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="attributes">
+      <annotation>
+         <documentation>
+            for input extension of type &quot;sax&quot; attributes are mapped to the saxparser properties.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="attribute"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="attribute">
+      <annotation>
+         <appInfo>
+            <meta.element labelAttribute="key"/>
+         </appInfo>
+      </annotation>
+      <complexType>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="key" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="default" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="type" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="boolean">
+                  </enumeration>
+                  <enumeration value="class">
+                  </enumeration>
+                  <enumeration value="int">
+                  </enumeration>
+                  <enumeration value="object">
+                  </enumeration>
+                  <enumeration value="double">
+                  </enumeration>
+                  <enumeration value="long">
+                  </enumeration>
+                  <enumeration value="float">
+                  </enumeration>
+                  <enumeration value="string">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="property">
+      <annotation>
+         <appInfo>
+            <meta.element labelAttribute="key"/>
+         </appInfo>
+      </annotation>
+      <complexType>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="key" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="default" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="type" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="boolean">
+                  </enumeration>
+                  <enumeration value="class">
+                  </enumeration>
+                  <enumeration value="int">
+                  </enumeration>
+                  <enumeration value="object">
+                  </enumeration>
+                  <enumeration value="double">
+                  </enumeration>
+                  <enumeration value="long">
+                  </enumeration>
+                  <enumeration value="float">
+                  </enumeration>
+                  <enumeration value="string">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="feature">
+      <annotation>
+         <appInfo>
+            <meta.element labelAttribute="key"/>
+         </appInfo>
+      </annotation>
+      <complexType>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="key" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="default" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="type" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="boolean">
+                  </enumeration>
+                  <enumeration value="class">
+                  </enumeration>
+                  <enumeration value="int">
+                  </enumeration>
+                  <enumeration value="object">
+                  </enumeration>
+                  <enumeration value="double">
+                  </enumeration>
+                  <enumeration value="long">
+                  </enumeration>
+                  <enumeration value="float">
+                  </enumeration>
+                  <enumeration value="string">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="properties">
+      <complexType>
+         <sequence>
+            <element ref="property"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+</schema>

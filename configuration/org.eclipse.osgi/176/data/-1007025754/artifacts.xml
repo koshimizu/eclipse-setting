@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='update site: http://eclipsexslt.sourceforge.net/update-site' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='3'>
+    <property name='p2.timestamp' value='1413864132243'/>
+    <property name='eclipse.p2.force.threading' value='true'/>
+    <property name='site.checksum' value='2426497212'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='6'>
+    <artifact classifier='osgi.bundle' id='com.orangevolt.eclipse.xslt' version='1.0.7'>
+      <repositoryProperties size='1'>
+        <property name='artifact.reference' value='http://eclipsexslt.sourceforge.net/update-site/plugins/com.orangevolt.eclipse.xslt_1.0.7.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.orangevolt.eclipse.xslt.feature' version='1.0.7'>
+      <repositoryProperties size='1'>
+        <property name='artifact.reference' value='http://eclipsexslt.sourceforge.net/update-site/features/com.orangevolt.eclipse.xslt.feature_1.0.7.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.orangevolt.eclipse.xslt.doc' version='1.0.7'>
+      <repositoryProperties size='1'>
+        <property name='artifact.reference' value='http://eclipsexslt.sourceforge.net/update-site/plugins/com.orangevolt.eclipse.xslt.doc_1.0.7.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.orangevolt.eclipse.xslt.xul' version='1.0.7'>
+      <repositoryProperties size='1'>
+        <property name='artifact.reference' value='http://eclipsexslt.sourceforge.net/update-site/plugins/com.orangevolt.eclipse.xslt.xul_1.0.7.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.orangevolt.eclipse.xslt.saxon_b_8.9' version='1.0.7'>
+      <repositoryProperties size='1'>
+        <property name='artifact.reference' value='http://eclipsexslt.sourceforge.net/update-site/plugins/com.orangevolt.eclipse.xslt.saxon_b_8.9_1.0.7.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.orangevolt.eclipse.xslt.docbook' version='1.0.7'>
+      <repositoryProperties size='1'>
+        <property name='artifact.reference' value='http://eclipsexslt.sourceforge.net/update-site/plugins/com.orangevolt.eclipse.xslt.docbook_1.0.7.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

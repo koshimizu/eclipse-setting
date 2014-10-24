@@ -1,0 +1,321 @@
+<?xml encoding="UTF-8"?>
+
+<!--
+XUL XML syntax specified in RELAX NG compact syntax
+authored by Gerald Bauer 
+for more info visit http://luxor-xul.sourceforge.net
+-->
+
+<!ENTITY % boxes "(box|hbox|vbox|groupbox|tabbox|grid|table|stack
+                   |deck)+">
+
+<!ELEMENT xul (anim|command|icon|keyset|list|map|mask|menubar|popup|pre
+               |portal|toolbar|window|(%boxes;))+>
+
+<!ENTITY % widgets "(button|checkbox|choice|mchoice|label|password
+                     |separator|spacer|textbox|textarea|componentref
+                     |gadget|image|iframe|datagrid)+">
+
+<!ENTITY % core_attributes "
+  id CDATA #IMPLIED
+  style CDATA #IMPLIED
+  class CDATA #IMPLIED">
+
+<!ELEMENT box ((%boxes;)|(%widgets;))*>
+<!ATTLIST box
+  %core_attributes;
+  orient (HORIZONTAL|VERTICAL) #IMPLIED
+  flex CDATA #IMPLIED
+  context CDATA #IMPLIED>
+
+<!ELEMENT hbox ((%boxes;)|(%widgets;))*>
+<!ATTLIST hbox
+  %core_attributes;
+  flex CDATA #IMPLIED
+  context CDATA #IMPLIED>
+
+<!ELEMENT vbox ((%boxes;)|(%widgets;))*>
+<!ATTLIST vbox
+  %core_attributes;
+  flex CDATA #IMPLIED
+  context CDATA #IMPLIED>
+
+<!ELEMENT groupbox (caption?,((%boxes;)|(%widgets;))*)>
+<!ATTLIST groupbox
+  %core_attributes;
+  orient (HORIZONTAL|VERTICAL) #IMPLIED
+  flex CDATA #IMPLIED
+  context CDATA #IMPLIED>
+
+<!ELEMENT caption EMPTY>
+<!ATTLIST caption
+  %core_attributes;
+  label CDATA #REQUIRED>
+
+<!ELEMENT grid (columns,rows)>
+<!ATTLIST grid
+  %core_attributes;
+  flex CDATA #IMPLIED>
+
+<!ELEMENT columns (column)+>
+
+<!ELEMENT column EMPTY>
+
+<!ELEMENT rows (row)+>
+
+<!ELEMENT row ((%boxes;)|(%widgets;))*>
+
+<!ELEMENT table (tr)+>
+<!ATTLIST table
+  %core_attributes;>
+
+<!ELEMENT tr (td)+>
+<!ATTLIST tr
+  %core_attributes;>
+
+<!ELEMENT td ((%boxes;)|(%widgets;))*>
+<!ATTLIST td
+  %core_attributes;
+  horz (LEFT|CENTER|RIGHT|MAX) #IMPLIED
+  vert (TOP|MIDDLE|BOTTOM|MAX) #IMPLIED>
+
+<!ELEMENT tabbox (tabs,tabpanels)>
+<!ATTLIST tabbox
+  %core_attributes;
+  flex CDATA #IMPLIED>
+
+<!ELEMENT tabs (tab)+>
+
+<!ELEMENT tab EMPTY>
+<!ATTLIST tab
+  %core_attributes;
+  label CDATA #REQUIRED>
+
+<!ELEMENT tabpanels (tabpanel)+>
+
+<!ELEMENT tabpanel ((%boxes;)|(%widgets;))*>
+<!ATTLIST tabpanel
+  orient (HORIZONTAL|VERTICAL) #IMPLIED
+  context CDATA #IMPLIED>
+
+<!ELEMENT stack ((%boxes;)|(%widgets;))*>
+<!ATTLIST stack
+  %core_attributes;
+  context CDATA #IMPLIED>
+
+<!ELEMENT deck ((%boxes;)|(%widgets;))*>
+<!ATTLIST deck
+  %core_attributes;
+  context CDATA #IMPLIED>
+
+<!ELEMENT button EMPTY>
+<!ATTLIST button
+  %core_attributes;
+  label CDATA #REQUIRED
+  command CDATA #IMPLIED
+  tooltip CDATA #IMPLIED
+  icon CDATA #IMPLIED
+  accesskey CDATA #IMPLIED
+  type (RADIO|CHECKBOX) #IMPLIED
+  group CDATA #IMPLIED
+  href CDATA #IMPLIED
+  target CDATA #IMPLIED>
+
+<!ELEMENT checkbox EMPTY>
+<!ATTLIST checkbox
+  %core_attributes;
+  label CDATA #REQUIRED
+  checked (TRUE|FALSE) #IMPLIED>
+
+<!ELEMENT choice EMPTY>
+<!ATTLIST choice
+  %core_attributes;
+  map CDATA #IMPLIED
+  list CDATA #IMPLIED
+  type (RADIO) #IMPLIED>
+
+<!ELEMENT mchoice EMPTY>
+<!ATTLIST mchoice
+  %core_attributes;
+  map CDATA #IMPLIED
+  list CDATA #IMPLIED
+  type (LIST) #IMPLIED>
+
+<!ELEMENT label EMPTY>
+<!ATTLIST label
+  %core_attributes;
+  value CDATA #REQUIRED>
+
+<!ELEMENT password EMPTY>
+<!ATTLIST password
+  %core_attributes;
+  value CDATA #IMPLIED
+  cols CDATA #IMPLIED>
+
+<!ELEMENT separator EMPTY>
+
+<!ELEMENT spacer EMPTY>
+<!ATTLIST spacer
+  %core_attributes;>
+
+<!ELEMENT textbox EMPTY>
+<!ATTLIST textbox
+  %core_attributes;
+  value CDATA #IMPLIED
+  cols CDATA #IMPLIED
+  mask CDATA #IMPLIED
+  ind CDATA #IMPLIED>
+
+<!ELEMENT textarea EMPTY>
+<!ATTLIST textarea
+  %core_attributes;
+  rows CDATA #IMPLIED
+  cols CDATA #IMPLIED>
+
+<!ELEMENT componentref EMPTY>
+<!ATTLIST componentref
+  %core_attributes;>
+
+<!ELEMENT gadget EMPTY>
+<!ATTLIST gadget
+  %core_attributes;>
+
+<!ELEMENT image EMPTY>
+<!ATTLIST image
+  src CDATA #REQUIRED
+  href CDATA #REQUIRED
+  target CDATA #REQUIRED>
+
+<!ELEMENT datagrid EMPTY>
+<!ATTLIST datagrid
+  %core_attributes;
+  datasource CDATA #REQUIRED>
+
+<!ELEMENT iframe EMPTY>
+<!ATTLIST iframe
+  %core_attributes;
+  src CDATA #REQUIRED>
+
+<!ELEMENT menubar (menu|menuref)+>
+<!ATTLIST menubar
+  %core_attributes;>
+
+<!ELEMENT menu (menupopup)>
+<!ATTLIST menu
+  %core_attributes;
+  label CDATA #REQUIRED
+  accesskey CDATA #IMPLIED
+  icon CDATA #IMPLIED>
+
+<!ELEMENT menuref EMPTY>
+<!ATTLIST menuref
+  %core_attributes;
+  label CDATA #REQUIRED
+  accesskey CDATA #IMPLIED
+  icon CDATA #IMPLIED>
+
+<!ELEMENT menupopup (menu|menuref|menuitem)+>
+
+<!ELEMENT menuitem EMPTY>
+<!ATTLIST menuitem
+  %core_attributes;
+  label CDATA #REQUIRED
+  command CDATA #IMPLIED
+  accesskey CDATA #IMPLIED
+  key CDATA #IMPLIED
+  icon CDATA #IMPLIED
+  href CDATA #IMPLIED
+  target CDATA #IMPLIED
+  type (RADIO|CHECKBOX) #IMPLIED
+  checked (TRUE|FALSE) #IMPLIED
+  group CDATA #IMPLIED
+  disable (TRUE|FALSE) #IMPLIED>
+
+<!ELEMENT menuseparator EMPTY>
+
+<!ELEMENT popup (menu|menuref|menuitem)+>
+<!ATTLIST popup
+  %core_attributes;>
+
+<!ELEMENT toolbar (toolbarbutton|toolbarseparator)+>
+<!ATTLIST toolbar
+  %core_attributes;
+  orient (HORIZONTAL|VERTICAL) #IMPLIED>
+
+<!ELEMENT toolbarbutton EMPTY>
+<!ATTLIST toolbarbutton
+  %core_attributes;
+  label CDATA #REQUIRED
+  command CDATA #IMPLIED
+  icon CDATA #IMPLIED
+  tooltip CDATA #IMPLIED
+  accesskey CDATA #IMPLIED
+  type (RADIO|CHECKBOX) #IMPLIED
+  checked (TRUE|FALSE) #IMPLIED
+  group CDATA #IMPLIED
+  disable (TRUE|FALSE) #REQUIRED>
+
+<!ELEMENT toolbarseparator EMPTY>
+<!ATTLIST toolbarseparator
+  %core_attributes;>
+
+<!ELEMENT map (entry)+>
+<!ATTLIST map
+  id CDATA #REQUIRED
+  sort (TRUE|FALSE) #IMPLIED>
+
+<!ELEMENT list (entry)+>
+<!ATTLIST list
+  id CDATA #REQUIRED
+  sort (TRUE|FALSE) #IMPLIED>
+
+<!ELEMENT entry EMPTY>
+<!ATTLIST entry
+  value CDATA #REQUIRED
+  key CDATA #IMPLIED>
+
+<!ELEMENT portal (portlet)+>
+<!ATTLIST portal
+  id CDATA #REQUIRED>
+
+<!ELEMENT portlet EMPTY>
+<!ATTLIST portlet
+  id CDATA #REQUIRED>
+
+<!ELEMENT keyset (key)+>
+
+<!ELEMENT key EMPTY>
+<!ATTLIST key
+  id CDATA #REQUIRED
+  key CDATA #IMPLIED
+  keycode (VK_0|VK_A|VK_F1) #IMPLIED
+  modifiers (SHIFT|ALT|META|CONTROL) #IMPLIED>
+
+<!ELEMENT anim (icon)+>
+<!ATTLIST anim
+  id CDATA #REQUIRED>
+
+<!ELEMENT command EMPTY>
+<!ATTLIST command
+  id CDATA #REQUIRED>
+
+<!ELEMENT icon EMPTY>
+<!ATTLIST icon
+  id CDATA #REQUIRED
+  ref CDATA #REQUIRED>
+
+<!ELEMENT mask EMPTY>
+<!ATTLIST mask
+  id CDATA #REQUIRED
+  mask CDATA #REQUIRED
+  maskchar CDATA #IMPLIED
+  type (DATE|NUMBER) #IMPLIED>
+
+<!ELEMENT window (menubar?,((%boxes;)|(%widgets;))*)>
+<!ATTLIST window
+  %core_attributes;
+  title CDATA #IMPLIED
+  icon CDATA #IMPLIED
+  sizemode (MAXIMIZED|MINIMIZED|NORMAL) #IMPLIED>
+
+<!ELEMENT pre (#PCDATA)>

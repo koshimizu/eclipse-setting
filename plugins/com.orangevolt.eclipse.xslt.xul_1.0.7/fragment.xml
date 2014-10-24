@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<fragment>
+	<extension point="com.orangevolt.eclipse.xslt.outlineconfiguration">
+		<grammar
+			id="com.orangevolt.eclipse.xslt.editor.outline.configuration.xul"
+			name="Orangevolt XUL Outline Configuration"
+			rootelement="window|overlay|dialog|page|wizard">						
+			<element name="*" label="${(local-name)} [${@id}]|${(local-name)} '${@title}'|${(local-name)} '${@label}'|${(namespace)}:${(local-name)}|${(local-name)}" icon="icons/outline/xul/element.gif"/>
+		</grammar>
+	</extension>
+</fragment>

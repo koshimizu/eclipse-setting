@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+	<!-- start descriptions -->
+<!DOCTYPE fragment [	
+	<!ENTITY saxon.output_property.cdata_section_elements 'specifies a whitespace delimited list of the names of elements whose text node children should be output using CDATA sections'>
+	<!ENTITY saxon.output_property.doctype_public 'see the documentation for the DOCTYPE_SYSTEM property for a description of what the value of the key should be'>
+	<!ENTITY saxon.output_property.doctype_system 'specifies the public identifier to be used in the document type declaration'>
+	<!ENTITY saxon.output_property.encoding 'specifies the preferred character encoding that the Transformer should use to encode sequences of characters as sequences of bytes'>
+	<!ENTITY saxon.output_property.indent 'specifies whether the Transformer may add additional whitespace when outputting the result tree; the value must be yes or no'>
+	<!ENTITY saxon.output_property.media_type 'specifies the media type (MIME content type) of the data that results from outputting the result tree. The charset parameter should not be specified explicitly; instead, when the top-level media type is text, a charset parameter should be added according to the character encoding actually used by the output method'>
+	<!ENTITY saxon.output_property.method '(xml | html | text | [expanded name]) the method attribute identifies the overall method that should be used for outputting the result tree'>
+	<!ENTITY saxon.output_property.omit_xml_declaration 'specifies whether the XSLT processor should output an XML declaration; the value must be yes or no'>
+	<!ENTITY saxon.output_property.standalone 'specifies whether the Transformer should output a standalone document declaration; the value must be yes or no'>
+	<!ENTITY saxon.output_property.version 'specifies the version of the output method'>
+	<!ENTITY saxon.output_property.indent_spaces '(integer value).Defines the number of spaces used for indentation of output'>
+	<!ENTITY saxon.output_property.use_character_maps '(list-of-qnames)Defines the character maps used in this output definition. The QNames are represented in Clark notation as {uri}local-name.'>
+	<!ENTITY saxon.output_property.include_content_type 'include-content-type = "yes" | "no". This attribute is defined in XSLT 2.0. Indicates whether the META tag is to be added to HTML output.'>
+	<!ENTITY saxon.output_property.undeclare_namespaces 'include-content-type = "yes" | "no". This attribute is defined in XSLT 2.0. Indicates XML 1.1 namespace declarations are to be output.'>
+	<!ENTITY saxon.output_property.escape_uri_attributes 'escape-uri-attributes = "yes" | "no". This attribute is defined in XSLT 2.0. Indicates whether HTML attributes of type URI are to be URI-escaped.'>
+	<!ENTITY saxon.output_property.character_representation '(rep1[;rep2]). Indicates the preferred way of representing non-ASCII characters in HTML and XML output. rep1 is for characters in the range 128-256, rep2 for those above 256.'>
+	<!ENTITY saxon.output_property.next_in_chain '(uri). Indicates that the output is to be piped into another XSLT stylesheet to perform another transformation. The auxiliary property NEXT_IN_CHAIN_BASE_URI records the base URI of the stylesheet element where this attribute was found.'>
+	<!ENTITY saxon.output_property.type_information '(none|preserve|strict|lax). Indicates the value of the type-information attribute: "none", "preserve", "strict", "lax"'>
+	<!ENTITY saxon.output_property.byte_order_mark '(yes|no). Indicates whether UTF-8/UTF-16 output is to start with a byte order mark. Values are "yes" or "no", default is "no".'>
+	<!ENTITY saxon.output_property.require_well_formed '(yes|no). Indicates whether a user-supplied ContentHandler requires the stream of SAX events to be well-formed (that is, to have a single element node and no text nodes as children of the root). The default is "no".'>
+	
+	<!ENTITY saxon.feature.allow_external_functions 'true if the stylesheet allows external functions to be called. Default is true. The setting false is recommended in an environment where untrusted stylesheets may be executed. Setting this value to false  also disables user-defined extension elements, together with the writing of multiple output files, all of which carry similar security risks.'>
+	<!ENTITY saxon.feature.trace_external_functions 'true if the tracing of calls to external Java methods is required. Default is false. This switch is useful when analyzing why Saxon fails to find a Java method to match an extension function call in the stylesheet, or why it chooses one method over another when several are available. The trace output is sent to System.err.'>
+	<!ENTITY saxon.feature.timing 'true if basic timing information is to be output to the standard error output stream.'>
+	<!ENTITY saxon.feature.tree_model 'Builder.STANDARD_TREE or Builder.TINY_TREE. Selects an implementation of the Saxon tree model. The default is Builder.TINY_TREE.'>
+	<!ENTITY saxon.feature.trace_listener 'an instance of the class net.sf.saxon.trace.TraceListener. This object will be notified of significant events occurring during the transformation, for tracing or debugging purposes.'>
+	<!ENTITY saxon.feature.line_numbering 'indicates whether line numbers are to be maintained for the source document. This will not be possible if the source document is supplied as a DOM. The line numbers are accessible through the tracing interface, and also via the saxon:line-number() extension function.'>
+	<!ENTITY saxon.feature.recovery_policy 'An Integer. Indicates how dynamic errors should be handled. One of the values (defined as constants in the Controller class) RECOVER_SILENTLY, RECOVER_WITH_WARNINGS, or DO_NOT_RECOVER).'>
+	<!ENTITY saxon.feature.message_emitter_class 'The full name of a saxon emitter class. that implements the net.sf.saxon.output.Emitter interface; the class will be used to format the output of the xsl:message instruction.'>
+	<!ENTITY saxon.feature.source_parser_class 'The full name of a class that implements the org.xml.sax.XMLReader interface; the class will be used to parse source documents (that is, the principal source document plus any secondary source documents read using the document() function)'>
+	<!ENTITY saxon.feature.style_parser_class 'The full name of a class that implements the org.xml.sax.XMLReader interface; the class will be used to parse stylesheet documents (that is, the principal stylesheet module plus any secondary source documents read using xsl:include or xsl:import)'>
+	<!ENTITY saxon.feature.uri_output_resolver 'An instance of the class net.sf.saxon.OutputURIResolver; this object will be used to resolve URIs of secondary result documents specified in the href attribute of the xsl:result-document  instruction'>
+	<!ENTITY saxon.feature.dtd_validation 'Indicates whether the XML parser should be asked to validate source documents against their DTD. This applies to the initial source document and any source documents read using the document() function, unless handled by a user-written URIResolver.'>
+	<!ENTITY saxon.feature.validation_warnings 'This determines whether validation errors in result documents should be treated as fatal. By default they are fatal; with this option set, they are treated as warnings.'>
+	<!ENTITY saxon.feature.schema_validation '(boolean) This determines whether source documents should be parsed with schema-validation enabled.'>
+	<!ENTITY saxon.feature.version_warning 'This determines whether a warning should be output when running an XSLT 2.0 processor against an XSLT 1.0 stylesheet. The XSLT specification requires this to be done by default.'>
+	<!ENTITY saxon.feature.name_pool 'A instance of class net.sf.saxon.om.NamePool. Indicates that the supplied NamePool should be used as the target (run-time) NamePool by all stylesheets compiled (using newTemplates()) after this call on setAttribute. Normally a single system-allocated NamePool is used for all stylesheets compiled while the Java VM remains loaded; this attribute allows user control over the allocation of NamePools. Note that source trees used as input to a transformation must be built using the same NamePool that is used when the stylesheet is compiled: this will happen automatically if the input to a transformation is supplied as a SAXSource or StreamSource but it is under user control if you build the source tree yourself.'>	
+]>
+	<!-- end descriptions -->
+<fragment>
+	<extension point="com.orangevolt.eclipse.xslt.transformer">
+		<transformer
+			name="Saxon-B 8.9"
+			class="net.sf.saxon.TransformerFactoryImpl"
+			classpath="lib/saxon*.jar">
+			<description>
+            	Saxon-B 8.9. - the Open Source SAXON XSLT processor developed by Michael Kay
+			</description>
+			<output-properties>
+				<output-property name="CDATA_SECTION_ELEMENTS" key="cdata-section-elements">&saxon.output_property.cdata_section_elements;</output-property>
+				<output-property name="DOCTYPE_PUBLIC" key="doctype-public">&saxon.output_property.doctype_public;</output-property>
+				<output-property name="DOCTYPE_SYSTEM" key="doctype-system">&saxon.output_property.doctype_system;</output-property>
+				<output-property name="ENCODING" key="encoding">&saxon.output_property.encoding;</output-property>
+				<output-property name="INDENT" key="indent" default="yes">&saxon.output_property.indent;</output-property>
+				<output-property name="MEDIA_TYPE" key="media-type">&saxon.output_property.media_type;</output-property>
+				<output-property name="METHOD" key="method">&saxon.output_property.method;</output-property>
+				<output-property name="OMIT_XML_DECLARATION" key="omit-xml-declaration">&saxon.output_property.omit_xml_declaration;</output-property>
+				<output-property name="STANDALONE" key="standalone">&saxon.output_property.standalone;</output-property>
+				<output-property name="VERSION" key="version">&saxon.output_property.version;</output-property>
+				<output-property name="INDENT_SPACES" key="{http://saxon.sf.net/}indent-spaces" default="4">&saxon.output_property.indent_spaces;</output-property>
+				<output-property name="USE_CHARACTER_MAPS" key="{http://saxon.sf.net/}use-character-maps">&saxon.output_property.use_character_maps;</output-property>
+				<output-property name="INCLUDE_CONTENT_TYPE" key="{http://saxon.sf.net/}include-content-type">&saxon.output_property.include_content_type;</output-property>
+				<output-property name="UNDECLARE_NAMESPACES" key="{http://saxon.sf.net/}undeclare-namespaces">&saxon.output_property.undeclare_namespaces;</output-property>
+				<output-property name="ESCAPE_URI_ATTRIBUTES" key="{http://saxon.sf.net/}escape-uri-attibutes">&saxon.output_property.escape_uri_attributes;</output-property>
+				<output-property name="CHARACTER_REPRESENTATION" key="{http://saxon.sf.net/}character-representation">&saxon.output_property.character_representation;</output-property>
+				<output-property name="NEXT_IN_CHAIN" key="{http://saxon.sf.net/}next-in-chain">&saxon.output_property.next_in_chain;</output-property>
+				<output-property name="TYPE_INFORMATION" key="{http://saxon.sf.net/}type-information">&saxon.output_property.type_information;</output-property>
+				<output-property name="BYTE_ORDER_MARK" key="{http://saxon.sf.net/}byte-order-mark">&saxon.output_property.byte_order_mark;</output-property>
+				<output-property name="REQUIRE_WELL_FORMED" key="{http://saxon.sf.net/}require-well-formed">&saxon.output_property.require_well_formed;</output-property>
+			</output-properties>
+			<features>
+				<feature name="ALLOW_EXTERNAL_FUNCTIONS" type="boolean" key="http://saxon.sf.net/feature/allow-external-functions">&saxon.feature.allow_external_functions;</feature>
+				<feature name="TRACE_EXTERNAL_FUNCTIONS" type="boolean" key="http://saxon.sf.net/feature/trace-external-functions">&saxon.feature.trace_external_functions;</feature>
+				<feature name="TIMING" type="boolean" key="http://saxon.sf.net/feature/timing">&saxon.feature.timing;</feature>
+				<feature name="TREE_MODEL" type="int" key="http://saxon.sf.net/feature/treeModel">&saxon.feature.tree_model;</feature>
+				<feature name="TRACE_LISTENER" type="object" key="http://saxon.sf.net/feature/traceListener">&saxon.feature.trace_listener;</feature>
+				<feature name="LINE_NUMBERING" type="boolean" key="http://saxon.sf.net/feature/linenumbering">&saxon.feature.line_numbering;</feature>
+				<feature name="RECOVERY_POLICY" type="int" key="http://saxon.sf.net/feature/recoveryPolicy">&saxon.feature.recovery_policy;</feature>
+				<feature name="MESSAGE_EMITTER_CLASS" type="class" key="http://saxon.sf.net/feature/messageEmitterClass">&saxon.feature.message_emitter_class;</feature>
+				<feature name="SOURCE_PARSER_CLASS" type="class" key="http://saxon.sf.net/feature/sourceParserClass">&saxon.feature.source_parser_class;</feature>
+				<feature name="STYLE_PARSER_CLASS" type="class" key="http://saxon.sf.net/feature/styleParserClass">&saxon.feature.style_parser_class;</feature>
+				<feature name="OUTPUT_URI_RESOLVER" type="object" key="http://saxon.sf.net/feature/outputURIResolver">&saxon.feature.uri_output_resolver;</feature>
+				<feature name="DTD_VALIDATION" type="boolean" key="http://saxon.sf.net/feature/validation">&saxon.feature.dtd_validation;</feature>
+				<feature name="VALIDATION_WARNINGS" type="boolean" key="http://saxon.sf.net/feature/validation-warnings">&saxon.feature.validation_warnings;</feature>
+				<feature name="SCHEMA_VALIDATION" type="boolean" key="http://saxon.sf.net/feature/schema-validation">&saxon.feature.schema_validation;</feature>
+				<feature name="VERSION_WARNING" type="boolean" key="http://saxon.sf.net/feature/version-warning">&saxon.feature.version_warning;</feature>
+				<feature name="NAME_POOL" type="object" key="http://saxon.sf.net/feature/namePool">&saxon.feature.name_pool;</feature>
+			</features>         
+		</transformer>
+	</extension>
+</fragment>

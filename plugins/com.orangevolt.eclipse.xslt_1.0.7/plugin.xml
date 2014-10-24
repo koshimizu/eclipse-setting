@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="transformer" name="com.orangevolt.eclipse.xslt.transformer" schema="schema/transformer.exsd"/>
+   <extension-point id="outlineconfiguration" name="com.orangevolt.eclipse.xslt.outlineconfiguration" schema="schema/outlineconfiguration.exsd"/>
+   <extension-point id="input" name="com.orangevolt.eclipse.xslt" schema="schema/input.exsd"/>
+   
+   <extension point="org.eclipse.ui.keywords">
+      <keyword label="xslt orangevolt"
+            id="com.orangevolt.xslt.preferences"/>  
+   </extension>
+   
+   <extension point="org.eclipse.ui.preferencePages">
+   	  <page
+            class="com.orangevolt.xslt.preferences.XSLTPreferencePage"
+            name="%preferences"
+            id="com.orangevolt.xslt.preferences.XSLTPreferencePage">
+      	<keywordReference id="com.orangevolt.xslt.preferences"/>
+      </page>
+      <page
+            class="com.orangevolt.xslt.preferences.XSLTTransformerPreferencePage"
+            name="%preferences.transformer"
+            id="com.orangevolt.xslt.preferences.XSLTTransformerPreferencePage"
+            category="com.orangevolt.xslt.preferences.XSLTPreferencePage">
+      	<keywordReference id="com.orangevolt.xslt.preferences"/>
+      </page>
+      <page
+            class="com.orangevolt.xslt.preferences.XSLTInputPreferencePage"
+            name="%preferences.input"
+            id="com.orangevolt.xslt.preferences.XSLTInputPreferencePage"
+            category="com.orangevolt.xslt.preferences.XSLTPreferencePage">
+      	<keywordReference id="com.orangevolt.xslt.preferences"/>
+      </page>
+   </extension>
+   
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            name="%product Launcher"
+            delegate="com.orangevolt.xslt.launch.XSLTLaunchConfigurationDelegate"
+            modes="run, debug"
+            id="com.orangevolt.xslt.launch.XSLTLaunchConfiguration">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+         
+         <launchConfigurationTabGroup
+            type="com.orangevolt.xslt.launch.XSLTLaunchConfiguration"
+            class="com.orangevolt.xslt.launch.XSLTLaunchConfigurationTabGroup"
+            id="com.orangevolt.xslt.launch.XSLTLaunchConfigurationTabGroup">
+      </launchConfigurationTabGroup>
+   </extension>
+   
+   <extension point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            label="%product"
+            icon="icons/xslt-16.gif"
+            modes="run, debug"
+            class="com.orangevolt.xslt.launch.XSLTLaunchShortcut"
+            id="com.orangevolt.xslt.launch.XSLTLaunchShortcut">
+          
+          <!-- deprecated since eclipse 3.1 > --> 
+          <perspective id="org.eclipse.debug.ui.DebugPerspective"/>
+          <perspective id="org.eclipse.ui.resourcePerspective"/>
+          <perspective id="org.eclipse.jdt.ui.JavaPerspective"/>
+          <!-- > deprecated since eclipse 3.1 -->
+          
+          <contextualLaunch>
+	           <enablement>
+	             <with variable="selection">
+	             	<count value="1"/>
+	           		<iterate>
+		                 <or>
+		                   <test property="org.eclipse.debug.ui.matchesPattern" value="*.xml"/>
+		                   <test property="org.eclipse.debug.ui.matchesPattern" value="*.xsl"/>
+		                   <test property="org.eclipse.debug.ui.matchesPattern" value="*.xslt"/>
+		                 </or>           		
+	           		</iterate>               	
+	             </with>
+	           </enablement>
+  		 </contextualLaunch>          
+      </shortcut>
+   </extension>
+      
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            icon="icons/xslt-16.gif"
+            configTypeID="com.orangevolt.xslt.launch.XSLTLaunchConfiguration"
+            id="com.orangevolt.xslt.launch.XSLTLaunchConfiguration">
+      </launchConfigurationTypeImage>
+   </extension>   
+   
+  	<extension point="org.eclipse.debug.ui.consoleLineTrackers">
+	  <consoleLineTracker 
+	     id="com.orangevolt.xslt.launch.XSLTConsoleLineTracker"
+	     class="com.orangevolt.xslt.launch.XSLTConsoleLineTracker"
+	     processType="xslt">
+	  </consoleLineTracker>
+	</extension>
+
+	<extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "com.orangevolt.xslt.editor.XMLEditor"
+        name = "Orangevolt XML Editor"
+        icon = "icons/xslt-16.gif"
+        extensions = "xml,xsl,xslt,xul"
+        default="true"
+        class = "com.orangevolt.xslt.editor.XMLEditor">
+        <!--
+        <contentTypeBinding contentTypeId="org.eclipse.core.runtime.xml" />
+        <contentTypeBinding contentTypeId="org.eclipse.wst.xml.core.xmlsource" />
+        -->
+    </editor>
+  </extension>
+
+<!-- org.eclipse.wst.sse.ui.StructuredTextEditor.context -->
+<!-- org.eclipse.wst.sse.ui.StructuredTextEditor.context -->
+  <extension
+         point="org.eclipse.ui.popupMenus">
+      <viewerContribution      
+            targetID="org.eclipse.core.runtime.xml.source.EditorContext"
+            id="com.orangevolt.xml.editor.actions">
+		 <action
+                label="%editor.action.showinnavigation.label"
+                icon="icons/xslt-16.gif"
+                class="com.orangevolt.xslt.editor.actions.ShowInNavigationActionDelegate"
+                menubarPath="group.add"
+                id="com.orangevolt.xml.editor.actions.ShowInNavigationActionDelegate"/>
+         <action
+         	   enablesFor="*"
+               label="%editor.action.insertelement.label"
+               icon="icons/xslt-16.gif"
+               definitionId="com.orangevolt.xslt.editor.actions.insert.command"
+               class="com.orangevolt.xslt.editor.actions.InsertElementEditorAction"
+               menubarPath="group.add"
+               id="com.orangevolt.xml.editor.actions.insert"/>
+         <action
+         	   enablesFor="*"
+               label="%editor.action.insertcdata.label"
+               icon="icons/xslt-16.gif"
+               definitionId="com.orangevolt.xslt.editor.actions.insertcdata.command"
+               class="com.orangevolt.xslt.editor.actions.InsertCDATASectionEditorAction"
+               menubarPath="group.add"
+               id="com.orangevolt.xml.editor.actions.insertcdata"/>
+         <action
+         	   enablesFor="*"
+               label="%editor.action.htmlentitiestochars.label"
+               icon="icons/xslt-16.gif"
+               definitionId="com.orangevolt.xslt.editor.actions.htmlentitiestochars.command"
+               class="com.orangevolt.xslt.editor.actions.HtmlEntitiesToCharsEditorAction"
+               menubarPath="group.add"
+               id="com.orangevolt.xml.editor.actions.htmlentitiestochars"/>
+          <action
+         	   enablesFor="*"
+               label="%editor.action.charstohtmlentities.label"
+               icon="icons/xslt-16.gif"
+               definitionId="com.orangevolt.xslt.editor.actions.charstohtmlentities.command"
+               class="com.orangevolt.xslt.editor.actions.CharsToHtmlEntitiesEditorAction"
+               menubarPath="group.add"
+               id="com.orangevolt.xslt.editor.actions.charstohtmlentities"/>
+          <action
+         	   enablesFor="*"
+               label="%editor.action.insertdate.label"
+               icon="icons/xslt-16.gif"
+               class="com.orangevolt.xslt.editor.actions.InsertDateEditorAction"
+               menubarPath="group.add"
+               id="com.orangevolt.xml.editor.actions.insertdate"/>     
+		</viewerContribution>
+  	</extension>
+
+  <extension
+         point="org.eclipse.ui.popupMenus">
+      <viewerContribution      
+            targetID="org.eclipse.wst.xml.core.xmlsource.source.EditorContext"
+            id="com.orangevolt.xsl.editor.actions">
+		 <action
+                label="%editor.action.showinnavigation.label"
+                icon="icons/xslt-16.gif"
+                class="com.orangevolt.xslt.editor.actions.ShowInNavigationActionDelegate"
+                menubarPath="group.add"
+                id="com.orangevolt.xslt.editor.actions.ShowInNavigationActionDelegate"/>
+         <action
+         	   enablesFor="*"
+               label="%editor.action.insertelement.label"
+               icon="icons/xslt-16.gif"
+               definitionId="com.orangevolt.xslt.editor.actions.insert.command"
+               class="com.orangevolt.xslt.editor.actions.InsertElementEditorAction"
+               menubarPath="group.add"
+               id="com.orangevolt.xslt.editor.actions.insert"/>
+         <action
+         	   enablesFor="*"
+               label="%editor.action.insertcdata.label"
+               icon="icons/xslt-16.gif"
+               definitionId="com.orangevolt.xslt.editor.actions.insertcdata.command"
+               class="com.orangevolt.xslt.editor.actions.InsertCDATASectionEditorAction"
+               menubarPath="group.add"
+               id="com.orangevolt.xsl.editor.actions.insertcdata"/>
+         <action
+         	   enablesFor="*"
+               label="%editor.action.htmlentitiestochars.label"
+               icon="icons/xslt-16.gif"
+               definitionId="com.orangevolt.xslt.editor.actions.htmlentitiestochars.command"
+               class="com.orangevolt.xslt.editor.actions.HtmlEntitiesToCharsEditorAction"
+               menubarPath="group.add"
+               id="com.orangevolt.xslt.editor.actions.htmlentitiestochars"/>
+          <action
+         	   enablesFor="*"
+               label="%editor.action.charstohtmlentities.label"
+               icon="icons/xslt-16.gif"
+               definitionId="com.orangevolt.xslt.editor.actions.charstohtmlentities.command"
+               class="com.orangevolt.xslt.editor.actions.CharsToHtmlEntitiesEditorAction"
+               menubarPath="group.add"
+               id="com.orangevolt.xslt.editor.actions.charstohtmlentities"/>
+          <action
+         	   enablesFor="*"
+               label="%editor.action.insertdate.label"
+               icon="icons/xslt-16.gif"
+               class="com.orangevolt.xslt.editor.actions.InsertDateEditorAction"
+               menubarPath="group.add"
+               id="com.orangevolt.xslt.editor.actions.insertdate"/>     
+		</viewerContribution>
+  	</extension>
+  
+  	<!-- Action set for command bindings -->
+   <extension
+         point="org.eclipse.ui.actionSets">
+
+      <actionSet
+            label="OrangevoltEditTools"
+            description="The bindings for Orangevolt tools plugin actions"
+            visible="true"
+            id="com.orangevolt.xslt.editor.actionset">
+		 <action
+		 	   enablesFor="*"	 
+               label="%editor.action.insertelement.label"
+               icon="icons/xslt-16.gif"
+               class="com.orangevolt.xslt.editor.actions.InsertElementEditorAction"
+               definitionId="com.orangevolt.xslt.editor.actions.insert.command"
+               id="com.orangevolt.xslt.editor.actionset.insert"/>
+		 <action
+		 	   enablesFor="*"	 
+               label="%editor.action.insertcdata.label"
+               icon="icons/xslt-16.gif"
+               class="com.orangevolt.xslt.editor.actions.InsertCDATASectionEditorAction"
+               definitionId="com.orangevolt.xslt.editor.actions.insertcdata.command"
+               id="com.orangevolt.xslt.editor.actionset.insertcdata"/>
+         <action
+		 	   enablesFor="*"	 
+               label="%editor.action.htmlentitiestochars.label"
+               icon="icons/xslt-16.gif"
+               class="com.orangevolt.xslt.editor.actions.HtmlEntitiesToCharsEditorAction"
+               definitionId="com.orangevolt.xslt.editor.actions.htmlentitiestochars.command"
+               id="com.orangevolt.xslt.editor.actionset.htmlentitiestochars"/>
+         <action
+         	   enablesFor="*"
+               label="%editor.action.charstohtmlentities.label"
+               icon="icons/xslt-16.gif"
+               class="com.orangevolt.xslt.editor.actions.CharsToHtmlEntitiesEditorAction"
+               definitionId="com.orangevolt.xslt.editor.actions.charstohtmlentities.command"
+               id="com.orangevolt.xslt.editor.actions.charstohtmlentities"/>
+         </actionSet>
+  	</extension>
+  	
+  	<!-- Commands and key bindings -->
+   <extension
+         point="org.eclipse.ui.commands">
+  	  <command
+           categoryId="org.eclipse.ui.category.edit"
+           id="com.orangevolt.xslt.editor.actions.insert.command"
+           name="%editor.action.insertelement.label"/>
+  	  <command
+           categoryId="org.eclipse.ui.category.edit"
+           id="com.orangevolt.xslt.editor.actions.insertcdata.command"
+           name="%editor.action.insertcdata.label"/>
+      <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.orangevolt.xslt.editor.actions.htmlentitiestochars.command"
+            name="%editor.action.htmlentitiestochars.label"/>
+      <command
+            categoryId="org.eclipse.ui.category.edit"
+            id="com.orangevolt.xslt.editor.actions.charstohtmlentities.command"
+            name="%editor.action.charstohtmlentities.label"/>
+
+  	</extension>     
+  	
+  	<extension
+         point="org.eclipse.wst.sse.ui.editorConfiguration">
+      <contentOutlineConfiguration
+            class="com.orangevolt.xslt.editor.outline.ContentOutlineConfiguration"
+            target="org.eclipse.core.runtime.xml"/>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Orangevolt"
+            id="com.orangevolt.xslt"/>
+      <view
+            class="com.orangevolt.xslt.views.XPathNavigator"
+            icon="icons/xslt-16.gif"
+            category="com.orangevolt.xslt"
+            name="XPath Navigator"
+            id="com.orangevolt.xslt.views.XPathNavigator"/>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+         <view
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.TaskList"
+               id="com.orangevolt.xslt.views.XPathNavigator"/>
+      </perspectiveExtension>
+   </extension>
+
+   <extension point="com.orangevolt.eclipse.xslt.outlineconfiguration">
+      <grammar
+            id="com.orangevolt.eclipse.xslt.editor.outline.configuration.doc"
+            name="Orangevolt Document Outline Configuration"
+            rootelement="doc">
+	        <element name="chapter" label="${@title}" tooltip="${@title} ${@href}" icon="icons/outline/doc/chapter.gif"/>
+			<element name="meta" label="meta" icon="icons/outline/doc/meta.gif"/>
+			<element name="doc" label="doc" icon="icons/outline/doc/doc.gif"/>
+			<element name="section" label="${@title}" icon="icons/outline/doc/section.gif"/>
+      </grammar>
+      <grammar
+            id="com.orangevolt.eclipse.xslt.editor.outline.configuration.stylesheet"
+            name="Orangevolt XSLT Stylesheet Outline Configuration"
+            rootelement="stylesheet|transform">
+   			<element name="stylesheet" label="stylesheet"/>
+			<element name="include" label="${@href}" icon="icons/outline/xsl/include.gif"/>
+			<element name="template" label="${@match} mode=${@mode}|${@match}|${@name}" icon="icons/outline/xsl/template.gif"/>
+      </grammar>
+   </extension>
+   
+   <extension
+         point="com.orangevolt.eclipse.xslt.transformer">
+      <transformer
+            class="org.apache.xalan.processor.TransformerFactoryImpl"
+            classpath="lib/xalan-2.7.jar,lib/sourcestyle-*.jar,serializer.jar"
+            name="Apache Xalan-J 2.7">
+         <description>
+            Apache Xalan-J 2.7 XSLT Transformer.
+         </description>
+         <output-properties>
+            <output-property name="CDATA_SECTION_ELEMENTS" key="cdata-section-elements">%xalan.output_property.cdata_section_elements</output-property>
+            <output-property name="DOCTYPE_PUBLIC" key="doctype-public">%xalan.output_property.doctype_public</output-property>
+            <output-property name="DOCTYPE_SYSTEM" key="doctype-system">%xalan.output_property.doctype_system</output-property>
+            <output-property name="ENCODING" key="encoding">%xalan.output_property.encoding</output-property>
+            <output-property name="INDENT" key="indent" default="yes">%xalan.output_property.indent</output-property>
+            <output-property name="MEDIA_TYPE" key="media-type">%xalan.output_property.media_type</output-property>
+            <output-property name="METHOD" key="method">%xalan.output_property.method</output-property>
+            <output-property name="OMIT_XML_DECLARATION" key="omit-xml-declaration">%xalan.output_property.omit_xml_declaration</output-property>
+            <output-property name="STANDALONE" key="standalone">%xalan.output_property.standalone</output-property>
+            <output-property name="VERSION" key="version">%xalan.output_property.version</output-property>
+            <output-property name="S_KEY_INDENT_AMOUNT" key="{http://xml.apache.org/xslt}indent-amount" default="4">%xalan.output_property.indent_amount</output-property>
+            <output-property name="S_KEY_ENTITIES" key="{http://xml.apache.org/xslt}entities">%xalan.output_property.entities</output-property>
+            <output-property name="S_USE_URL_ESCAPING" key="{http://xml.apache.org/xslt}use-url-escaping">%xalan.output_property.use_url_escaping</output-property>
+            <output-property name="S_OMIT_META_TAG" key="{http://xml.apache.org/xslt}omit-meta-tag">%xalan.output_property.omit_meta_tag</output-property>
+         </output-properties>
+         <features>
+            <feature name="FEATURE_OPTIMIZE" key="http://apache.org/xalan/features/optimize" type="boolean">%xalan.feature.optimize</feature>
+            <feature name="FEATURE_INCREMENTAL" key="http://apache.org/xalan/features/incremental" type="boolean">%xalan.feature.incremental</feature>
+            <feature name="FEATURE_SOURCE_LOCATION" key="http://apache.org/xalan/features/source_location" type="boolean">%xalan.feature.source_location</feature>
+         </features>         
+      </transformer>
+      
+      <transformer
+            name="Default Transformer">
+         <description>
+            XSLT Transformer provided by Java Runtime
+         </description>
+         <output-properties>
+            <output-property name="CDATA_SECTION_ELEMENTS" key="cdata-section-elements">%defaulttransformer.output_property.cdata_section_elements</output-property>
+            <output-property name="DOCTYPE_PUBLIC" key="doctype-public">%defaulttransformer.output_property.doctype_public</output-property>
+            <output-property name="DOCTYPE_SYSTEM" key="doctype-system">%defaulttransformer.output_property.doctype_system</output-property>
+            <output-property name="ENCODING" key="encoding">%defaulttransformer.output_property.encoding</output-property>
+            <output-property name="INDENT" key="indent" default="yes">%defaulttransformer.output_property.indent</output-property>
+            <output-property name="MEDIA_TYPE" key="media-type">%defaulttransformer.output_property.media_type</output-property>
+            <output-property name="METHOD" key="method">%defaulttransformer.output_property.method</output-property>
+            <output-property name="OMIT_XML_DECLARATION" key="omit-xml-declaration">%defaulttransformer.output_property.omit_xml_declaration</output-property>
+            <output-property name="STANDALONE" key="standalone">%defaulttransformer.output_property.standalone</output-property>
+            <output-property name="VERSION" key="version">%defaulttransformer.output_property.version</output-property>
+         </output-properties>
+      </transformer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+
+      <key
+            sequence="Ctrl+Shift+D"
+            contextId="org.eclipse.wst.sse.ui.structuredTextEditorScope"
+            commandId="com.orangevolt.xslt.editor.actions.charstohtmlentities.command"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            sequence="Ctrl+T"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="com.orangevolt.xslt.editor.actions.insert.command"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            sequence="Ctrl+Shift+C"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="com.orangevolt.xslt.editor.actions.insertcdata.command"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            sequence="Ctrl+Shift+H"
+            contextId="org.eclipse.ui.textEditorScope"
+            commandId="com.orangevolt.xslt.editor.actions.htmlentitiestochars.command"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+            
+   </extension>
+
+	<extension point = "org.eclipse.wst.xml.core.catalogContributions">
+		<catalogContribution>
+        <public
+              publicId="XUL"
+              uri="catalogs/xul.dtd">
+        </public>
+        <public
+              publicId="XML-FO"
+              uri="catalogs/fo.dtd">
+        </public>
+	     </catalogContribution>
+	</extension>
+ <extension point="com.orangevolt.eclipse.xslt.input">
+    <input class="javax.xml.parsers.SAXParserFactory"
+    	   label="Default SAX Parser"
+    	   name="javax.xml.parsers.SAXParserFactory"
+    	   type="sax">
+    	   <features>				
+				<feature key="http://xml.org/sax/features/external-general-entities" type="boolean">Reports whether this parser processes external general entities; always true if validating.</feature>
+				<feature key="http://xml.org/sax/features/external-parameter-entities" type="boolean">Reports whether this parser processes external parameter entities; always true if validating.</feature>
+				<feature key="http://xml.org/sax/features/lexical-handler/parameter-entities" type="boolean">A value of "true" indicates that the LexicalHandler will report the beginning and end of parameter entities.</feature>
+				<feature key="http://xml.org/sax/features/namespaces" type="boolean">Default is true. A value of "true" indicates namespace URIs and unprefixed local names for element and attribute names will be available.</feature>
+				<feature key="http://xml.org/sax/features/namespace-prefixes" type="boolean">Default is false. A value of "true" indicates that XML qualified names (with prefixes) and attributes (including xmlns* attributes) will be available.</feature>
+				<feature key="http://xml.org/sax/features/resolve-dtd-uris" type="boolean">Default is true. A value of "true" indicates that system IDs in declarations will be absolutized (relative to their base URIs) before reporting. (That is the default behavior for all SAX2 XML parsers.) A value of "false" indicates those IDs will not be absolutized; parsers will provide the base URI from Locator.getSystemId(). This applies to system IDs passed in</feature>
+				<feature key="http://xml.org/sax/features/string-interning" type="boolean">Has a value of "true" if all XML names (for elements, prefixes, attributes, entities, notations, and local names), as well as Namespace URIs, will have been interned using java.lang.String.intern. This supports fast testing of equality/inequality against string constants, rather than forcing slower calls to String.equals().</feature>
+				<feature key="http://xml.org/sax/features/unicode-normalization-checking" type="boolean">Default is false. Controls whether the parser reports Unicode normalization errors as described in section 2.13 and Appendix B of the XML 1.1 Recommendation. If true, Unicode normalization errors are reported using the ErrorHandler.error() callback. Such errors are not fatal in themselves (though, obviously, other Unicode-related encoding errors may be).</feature>
+				<feature key="http://xml.org/sax/features/use-entity-resolver2" type="boolean">Default is true. Returns "true" if, when setEntityResolver is given an object implementing the org.xml.sax.ext.EntityResolver2 interface, those new methods will be used. Returns "false" to indicate that those methods will not be used.</feature>
+				<feature key="http://xml.org/sax/features/validation" type="boolean">Controls whether the parser is reporting all validity errors; if true, all external entities will be read.</feature>
+				<feature key="http://xml.org/sax/features/xmlns-uris" type="boolean">Default is false. Controls whether, when the namespace-prefixes feature is set, the parser treats namespace declaration attributes as being in the http://www.w3.org/2000/xmlns/ namespace. By default, SAX2 conforms to the original "Namespaces in XML" Recommendation, which explicitly states that such attributes are not in any namespace. Setting this optional flag to "true" makes the SAX2 events conform to a later backwards-incompatible revision of that recommendation, placing those attributes in a namespace.</feature>
+    	   </features>	
+    </input>
+    <input class="javax.xml.parsers.DocumentBuilderFactory"
+    	   label="Default DOM Parser"
+    	   name="javax.xml.parsers.DocumentBuilderFactory"
+    	   type="dom">
+    </input>
+    <input
+          class="org.apache.xerces.jaxp.DocumentBuilderFactoryImpl"
+          label="Apache Xerces DOM"
+          name="org.apache.xerces.jaxp.DocumentBuilderFactoryImpl"
+          type="dom">
+       <classpath>
+          <library
+                bundle="org.apache.xerces"
+                path="*.jar"/>
+       </classpath>
+       <features>
+    	   	  <!-- general features -->	
+          <feature key="http://xml.org/sax/features/namespaces" type="boolean">Perform namespace processing: prefixes will be stripped off element and attribute names and replaced with the corresponding namespace URIs. By default, the two will simply be concatenated, but the namespace-sep core property allows the application to specify a delimiter string for separating the URI part and the local part. Note :  If the validation feature is set to true, then the document must contain a grammar that supports the use of namespaces. Defaults to true</feature>
+          <feature key="http://xml.org/sax/features/use-entity-resolver2" type="boolean"> The methods of the org.xml.sax.ext.EntityResolver2 interface will be used when an object implementing this interface is registered with the parser using setEntityResolver. Note:  If the disallow DOCTYPE declaration feature is set to true org.xml.sax.ext.EntityResolver2.getExternalSubset() will not be called when the document contains no DOCTYPE declaration. Default is true.</feature>
+          <feature key="http://xml.org/sax/features/validation" type="boolean">Default is false. Validate the document and report validity errors. If this feature is set to true, the document must specify a grammar. By default, validation will occur against DTD. For more information, please, refer to the FAQ. If this feature is set to false, and document specifies a grammar that grammar might be parsed but no validation of the document contents will be performed.</feature>
+          <feature key="http://apache.org/xml/features/validation/dynamic" type="boolean">If set to true the parser will validate the document only if a grammar is specified. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema" type="boolean">Set to true to turn on XML Schema validation by inserting an XML Schema validator into the pipeline. Default is false.  Validation errors will only be reported if the validation feature is set to true.  Checking of constraints on a schema grammar which are either time-consuming or memory intensive such as unique particle attribution will only occur if the schema full checking feature is set to true.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema-full-checking"	type="boolean">Enables full schema grammar constraint checking, including checking which may be time-consuming or memory intensive. Currently, unique particle attribution constraint checking and particle derivation restriction checking are controlled by this option. Default is false.  This feature checks the Schema grammar itself for additional errors that are time-consuming or memory intensive. It does not affect the level of checking performed on document instances that use Schema grammars.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema/normalized-value" type="boolean">Set to true to expose via SAX and DOM XML Schema normalized values for attributes and elements. Default is true.  XML Schema normalized values will be exposed only if both schema validation and validation features are set to true.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema/element-default" type="boolean">Set to true to send XML Schema element default values via characters(). Defaults to true. XML Schema default values will be send via characters() if both schema validation and validation features are set to true.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema/augment-psvi" type="boolean">Set to true to augment Post-Schema-Validation-Infoset. Default is true. This feature can be turned off to improve parsing performance.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema/ignore-xsi-type-until-elemdecl" type="boolean">xsi:type attributes will be ignored until a global element declaration has been found, at which point xsi:type attributes will be processed on the element for which the global element declaration was found as well as its descendants. Default is false. False means do not ignore xsi:type attributes.</feature>
+          <feature key="http://apache.org/xml/features/generate-synthetic-annotations" type="boolean">True enables generation of synthetic annotations. A synthetic annotation will be generated when a schema component has non-schema attributes but no child annotation. Default is false</feature>
+          <feature key="http://apache.org/xml/features/validate-annotations" type="boolean">Set to true and Schema annotations will be laxly validated against available schema components. Default is false.	</feature>
+          <feature key="http://apache.org/xml/features/honour-all-schemaLocations" type="boolean">True means all schema location hints will be used to locate the components for a given target namespace. False means only the first schema location hint encountered by the processor will be used to locate the components for a given target namespace. Default is false.</feature>
+          <feature key="http://xml.org/sax/features/external-general-entities" type="boolean">True means include external general entities. Default is true.</feature>
+          <feature key="http://xml.org/sax/features/external-parameter-entities" type="boolean">Set to true to include external parameter entities and the external DTD subset. Default is true.</feature>
+          <feature key="http://apache.org/xml/features/validation/balance-syntax-trees" type="boolean">Set to true will construct an optimal representation for DTD content models to significantly reduce the likelihood a StackOverflowError will occur when large content models are processed. Default is false.  Enabling this feature may cost your application some performance when DTDs are processed so it is recommended that it only be turned on when necessary.</feature>
+          <feature key="http://apache.org/xml/features/validation/id-idref-checking" type="boolean">Enables checking of ID/IDREF constraints. Defaults to true. False disables checking of ID/IDREF constraints. Validation will not fail if there are non-unique ID values or dangling IDREF values in the document.</feature>
+          <feature key="http://apache.org/xml/features/validation/identity-constraint-checking" type="boolean">Enable identity constraint checking. Default is true.</feature>
+          <feature key="http://apache.org/xml/features/validation/unparsed-entity-checking" type="boolean">True checks that each value of type ENTITY matches the name of an unparsed entity declared in the DTD. Default is true.</feature>
+          <feature key="http://apache.org/xml/features/validation/warn-on-duplicate-attdef" type="boolean">True reports a warning when a duplicate attribute is re-declared. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/validation/warn-on-undeclared-elemdef" type="boolean">True reports a warning if an element referenced in a content model is not declared. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/warn-on-duplicate-entitydef" type="boolean">True reports a warning for duplicate entity declaration. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/allow-java-encodings" type="boolean">Allow Java encoding names in XMLDecl and TextDecl line.  A true value for this feature allows the encoding of the file to be specified as a Java encoding name as well as the standard ISO encoding name. Be aware that other parsers may not be able to use Java encoding names. If this feature is set to false, an error will be generated if Java encoding names are used. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/continue-after-fatal-error" type="boolean">Set to true to attempt to continue parsing after a fatal error. Default is false.  The behavior of the parser when this feature is set to true is undetermined! Therefore use this feature with extreme caution because the parser may get stuck in an infinite loop or worse.</feature>
+          <feature key="http://apache.org/xml/features/nonvalidating/load-dtd-grammar" type="boolean">Set to true for loading the DTD and use it to add default attributes and set attribute types when parsing. Default is true.</feature>
+          <feature key="http://apache.org/xml/features/nonvalidating/load-external-dtd" type="boolean">Set to false to ignore the external DTD completely. Default is true.</feature>
+          <feature key="http://apache.org/xml/features/scanner/notify-char-refs" type="boolean">Set to true to notify the handler of character entity boundaries in the document via the start/endEntity callbacks. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/scanner/notify-builtin-refs" type="boolean">True otifies the handler of built-in entity boundaries (e.g &amp;) in the document via the start/endEntity callbacks. Defult is false.</feature>
+          <feature key="http://apache.org/xml/features/disallow-doctype-decl" type="boolean"> A fatal error is thrown if the incoming document contains a DOCTYPE declaration. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/standard-uri-conformant" type="boolean">Set to true requires that a URI has to be provided where a URI is expected.  It's recommended to set this feature to true if you want your application/documents to be truly portable across different XML processors. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/xinclude" type="boolean">Enable XInclude processing. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/xinclude/fixup-language" type="boolean">Set to false to do not perform language fixup. The XInclude processor will not add xml:lang attributes. Default is true.</feature>
+          
+	          <!-- dom features -->
+          <feature key="http://apache.org/xml/features/dom/defer-node-expansion" type="boolean">True lazily expands the DOM nodes. Default is true.  When this feature is set to true, the DOM nodes in the returned document are expanded as the tree is traversed. This allows the parser to return a document faster than if the tree is fully expanded during parsing and improves memory usage when the whole tree is not traversed.</feature>
+          <feature key="http://apache.org/xml/features/dom/create-entity-ref-nodes" type="boolean">False means do not create EntityReference nodes in the DOM tree. No EntityReference nodes will be created, only the nodes corresponding to their fully expanded sustitution text will be created. Default is true.  This feature only affects the appearance of EntityReference  nodes in the DOM tree. The document will always contain the entity reference child nodes. </feature>
+          <feature key="http://apache.org/xml/features/dom/include-ignorable-whitespace" type="boolean">False means do not include ignorable whitespace in the DOM tree.   	 The only way that the parser can determine if text is ignorable is by reading the associated grammar and having a content model for the document. When ignorable whitespace text nodes are included in the DOM tree, they will be flagged as ignorable. The ignorable flag can be queried by calling the TextImpl#isIgnorableWhitespace():boolean method. This feature is relevant only when the grammar is DTD.</feature>
+       </features>       
+       <attributes>
+       		<!-- general -->
+          <attribute key="http://apache.org/xml/properties/schema/external-schemaLocation" type="string"> The XML Schema Recommendation explicitly states that the inclusion of schemaLocation/noNamespaceSchemaLocation attributes is only a hint; it does not mandate that these attributes must be used to locate schemas. Similar situation happens to &lt;import&gt; element in schema documents. This property allows the user to specify a list of schemas to use. If the targetNamespace of a schema (specified using this property) matches the targetNamespace of a schema occurring in the instance document in schemaLocation attribute, or if the targetNamespace matches the namespace attribute of &lt;import&gt;  element, the schema specified by the user using this property will be used (i.e., the schemaLocation attribute in the instance document or on the &lt;import&gt; element will be effectively ignored).  The syntax is the same as for schemaLocation attributes in instance documents: e.g, "http://www.example.com file_name.xsd". The user can specify more than one XML Schema in the list.</attribute>
+          <attribute key="http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation" type="string"> This property allows the user to specify an XML Schema with no namespace.  The syntax is a same as for the noNamespaceSchemaLocation attribute that may occur in an instance document: e.g."file_name.xsd". The user may specify only one XML Schema. For more information see the documentation for the http://apache.org/xml/properties/schema/external-schemaLocation property.</attribute>
+          <attribute key="http://apache.org/xml/properties/input-buffer-size" type="int"> The size of the input buffer in the readers. This determines how many bytes to read for each chunk.  Some tests indicate that a bigger buffer size can improve the parsing performance for relatively large files. The default buffer size in Xerces is 2K. This would give a good performance for small documents (less than 10K). For documents larger than 10K, specifying the buffer size to 4K or 8K will significantly improve the performance. But it's not recommended to set it to a value larger than 16K. For really tiny documents (1K, for example), you can also set it to a value less than 2K, to get the best performance.   There are some conditions where the size of the parser's internal buffers may be increased beyond the size specified for the input buffer. This would happen in places where the text in the document cannot be split, for instance if the document contains a name which is longer than the input buffer.</attribute>
+	    </attributes>
+    </input>
+    <input
+          class="org.apache.xerces.jaxp.SAXParserFactoryImpl"
+          label="Apache Xerces SAX"
+          name="org.apache.xerces.jaxp.SAXParserFactoryImpl"
+          type="sax">
+       <classpath>
+          <library
+                bundle="org.apache.xerces"
+                path="*.jar"/>
+       </classpath>
+       <features>
+    	   	  <!-- general features -->	
+          <feature key="http://xml.org/sax/features/namespaces" type="boolean">Perform namespace processing: prefixes will be stripped off element and attribute names and replaced with the corresponding namespace URIs. By default, the two will simply be concatenated, but the namespace-sep core property allows the application to specify a delimiter string for separating the URI part and the local part. Note :  If the validation feature is set to true, then the document must contain a grammar that supports the use of namespaces. Defaults to true</feature>
+          <feature key="http://xml.org/sax/features/use-entity-resolver2" type="boolean"> The methods of the org.xml.sax.ext.EntityResolver2 interface will be used when an object implementing this interface is registered with the parser using setEntityResolver. Note:  If the disallow DOCTYPE declaration feature is set to true org.xml.sax.ext.EntityResolver2.getExternalSubset() will not be called when the document contains no DOCTYPE declaration. Default is true.</feature>
+          <feature key="http://xml.org/sax/features/validation" type="boolean">Default is false. Validate the document and report validity errors. If this feature is set to true, the document must specify a grammar. By default, validation will occur against DTD. For more information, please, refer to the FAQ. If this feature is set to false, and document specifies a grammar that grammar might be parsed but no validation of the document contents will be performed.</feature>
+          <feature key="http://apache.org/xml/features/validation/dynamic" type="boolean">If set to true the parser will validate the document only if a grammar is specified. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema" type="boolean">Set to true to turn on XML Schema validation by inserting an XML Schema validator into the pipeline. Default is false.  Validation errors will only be reported if the validation feature is set to true.  Checking of constraints on a schema grammar which are either time-consuming or memory intensive such as unique particle attribution will only occur if the schema full checking feature is set to true.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema-full-checking"	type="boolean">Enables full schema grammar constraint checking, including checking which may be time-consuming or memory intensive. Currently, unique particle attribution constraint checking and particle derivation restriction checking are controlled by this option. Default is false.  This feature checks the Schema grammar itself for additional errors that are time-consuming or memory intensive. It does not affect the level of checking performed on document instances that use Schema grammars.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema/normalized-value" type="boolean">Set to true to expose via SAX and DOM XML Schema normalized values for attributes and elements. Default is true.  XML Schema normalized values will be exposed only if both schema validation and validation features are set to true.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema/element-default" type="boolean">Set to true to send XML Schema element default values via characters(). Defaults to true. XML Schema default values will be send via characters() if both schema validation and validation features are set to true.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema/augment-psvi" type="boolean">Set to true to augment Post-Schema-Validation-Infoset. Default is true. This feature can be turned off to improve parsing performance.</feature>
+          <feature key="http://apache.org/xml/features/validation/schema/ignore-xsi-type-until-elemdecl" type="boolean">xsi:type attributes will be ignored until a global element declaration has been found, at which point xsi:type attributes will be processed on the element for which the global element declaration was found as well as its descendants. Default is false. False means do not ignore xsi:type attributes.</feature>
+          <feature key="http://apache.org/xml/features/generate-synthetic-annotations" type="boolean">True enables generation of synthetic annotations. A synthetic annotation will be generated when a schema component has non-schema attributes but no child annotation. Default is false</feature>
+          <feature key="http://apache.org/xml/features/validate-annotations" type="boolean">Set to true and Schema annotations will be laxly validated against available schema components. Default is false.	</feature>
+          <feature key="http://apache.org/xml/features/honour-all-schemaLocations" type="boolean">True means all schema location hints will be used to locate the components for a given target namespace. False means only the first schema location hint encountered by the processor will be used to locate the components for a given target namespace. Default is false.</feature>
+          <feature key="http://xml.org/sax/features/external-general-entities" type="boolean">True means include external general entities. Default is true.</feature>
+          <feature key="http://xml.org/sax/features/external-parameter-entities" type="boolean">Set to true to include external parameter entities and the external DTD subset. Default is true.</feature>
+          <feature key="http://apache.org/xml/features/validation/balance-syntax-trees" type="boolean">Set to true will construct an optimal representation for DTD content models to significantly reduce the likelihood a StackOverflowError will occur when large content models are processed. Default is false.  Enabling this feature may cost your application some performance when DTDs are processed so it is recommended that it only be turned on when necessary.</feature>
+          <feature key="http://apache.org/xml/features/validation/id-idref-checking" type="boolean">Enables checking of ID/IDREF constraints. Defaults to true. False disables checking of ID/IDREF constraints. Validation will not fail if there are non-unique ID values or dangling IDREF values in the document.</feature>
+          <feature key="http://apache.org/xml/features/validation/identity-constraint-checking" type="boolean">Enable identity constraint checking. Default is true.</feature>
+          <feature key="http://apache.org/xml/features/validation/unparsed-entity-checking" type="boolean">True checks that each value of type ENTITY matches the name of an unparsed entity declared in the DTD. Default is true.</feature>
+          <feature key="http://apache.org/xml/features/validation/warn-on-duplicate-attdef" type="boolean">True reports a warning when a duplicate attribute is re-declared. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/validation/warn-on-undeclared-elemdef" type="boolean">True reports a warning if an element referenced in a content model is not declared. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/warn-on-duplicate-entitydef" type="boolean">True reports a warning for duplicate entity declaration. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/allow-java-encodings" type="boolean">Allow Java encoding names in XMLDecl and TextDecl line.  A true value for this feature allows the encoding of the file to be specified as a Java encoding name as well as the standard ISO encoding name. Be aware that other parsers may not be able to use Java encoding names. If this feature is set to false, an error will be generated if Java encoding names are used. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/continue-after-fatal-error" type="boolean">Set to true to attempt to continue parsing after a fatal error. Default is false.  The behavior of the parser when this feature is set to true is undetermined! Therefore use this feature with extreme caution because the parser may get stuck in an infinite loop or worse.</feature>
+          <feature key="http://apache.org/xml/features/nonvalidating/load-dtd-grammar" type="boolean">Set to true for loading the DTD and use it to add default attributes and set attribute types when parsing. Default is true.</feature>
+          <feature key="http://apache.org/xml/features/nonvalidating/load-external-dtd" type="boolean">Set to false to ignore the external DTD completely. Default is true.</feature>
+          <feature key="http://apache.org/xml/features/scanner/notify-char-refs" type="boolean">Set to true to notify the handler of character entity boundaries in the document via the start/endEntity callbacks. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/scanner/notify-builtin-refs" type="boolean">True otifies the handler of built-in entity boundaries (e.g &amp;) in the document via the start/endEntity callbacks. Defult is false.</feature>
+          <feature key="http://apache.org/xml/features/disallow-doctype-decl" type="boolean"> A fatal error is thrown if the incoming document contains a DOCTYPE declaration. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/standard-uri-conformant" type="boolean">Set to true requires that a URI has to be provided where a URI is expected.  It's recommended to set this feature to true if you want your application/documents to be truly portable across different XML processors. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/xinclude" type="boolean">Enable XInclude processing. Default is false.</feature>
+          <feature key="http://apache.org/xml/features/xinclude/fixup-language" type="boolean">Set to false to do not perform language fixup. The XInclude processor will not add xml:lang attributes. Default is true.</feature>
+          
+	          <!-- sax features -->
+          <feature key="http://xml.org/sax/features/namespace-prefixes" type="boolean">True reports the original prefixed names and attributes used for namespace declarations. Default is false.</feature>
+          <feature key="http://xml.org/sax/features/string-interning" type="boolean">True means all element names, prefixes, attribute names, namespace URIs, and local names are internalized using the java.lang.String#intern(String):String method. Default is true.  Xerces-J always internalizes all strings mentioned above using the String#intern() method. This feature can only be set to true.  </feature>
+          <feature key="http://xml.org/sax/features/lexical-handler/parameter-entities" type="boolean">False means do not report the beginning and end of parameter entities to a registered LexicalHandler. Default is true.</feature>
+          <feature key="http://xml.org/sax/features/resolve-dtd-uris" type="boolean">Set to false and the system identifiers in declarations will not be absolutized before reporting.  This feature does not apply to EntityResolver.resolveEntity(), which is not used to report declarations, or to LexicalHandler.startDTD(), which already provides the non-absolutized URI. Defaults to true.</feature>
+          <feature key="http://xml.org/sax/features/unicode-normalization-checking" type="boolean">True means perform Unicode normalization checking (as described in section 2.13 and Appendix B of the XML 1.1 Recommendation) and report normalization errors. Default is false.  As there is currently no support for Unicode normalization checking, this feature can only be set to false.</feature>
+          <feature key="http://xml.org/sax/features/xmlns-uris" type="boolean">True means  When the namespace-prefixes feature is set to true, namespace declaration attributes will be reported as being in the http://www.w3.org/2000/xmlns/ namespace. Default is false.</feature>
+          <feature key="http://xml.org/sax/features/allow-dtd-events-after-endDTD" type="boolean">False ensures that notationDecl and unparsedEntityDecl events are not sent after the endDTD event has been sent (default SAX behaviour). Default is true.  The default value for this feature is true, except when using SAX, because SAX requires that no DTD events be sent after the endDTD  event. Thus, in order to maintain SAX compatibility, this feature cannot be true by default for SAX. Setting this feature to false can result in loss of information, if notations and unparsed entities were needed to resolve references in the document.  This feature is only relevant when XInclude processing is being done. Due to the nature of implementing XInclude in a stream-based API, it is not possible to know the complete set of required unparsed entities and notations before the endDTD  event from the source document is sent. If an XIncludeHandler is not present in your pipeline, the value of this feature is irrelevant.   This feature is currently experimental, and might be removed or changed in the next release. If you have any concerns or suggestions about its use, please contact the j-users@xerces.apache.org mailing list.  </feature>
+       </features>              
+       <attributes>
+       		<!-- general -->
+          <attribute key="http://apache.org/xml/properties/schema/external-schemaLocation" type="string"> The XML Schema Recommendation explicitly states that the inclusion of schemaLocation/noNamespaceSchemaLocation attributes is only a hint; it does not mandate that these attributes must be used to locate schemas. Similar situation happens to import element in schema documents. This property allows the user to specify a list of schemas to use. If the targetNamespace of a schema (specified using this property) matches the targetNamespace of a schema occurring in the instance document in schemaLocation attribute, or if the targetNamespace matches the namespace attribute of import  element, the schema specified by the user using this property will be used (i.e., the schemaLocation attribute in the instance document or on the import element will be effectively ignored).  The syntax is the same as for schemaLocation attributes in instance documents: e.g, "http://www.example.com file_name.xsd". The user can specify more than one XML Schema in the list.</attribute>
+          <attribute key="http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation" type="string"> This property allows the user to specify an XML Schema with no namespace.  The syntax is a same as for the noNamespaceSchemaLocation attribute that may occur in an instance document: e.g."file_name.xsd". The user may specify only one XML Schema. For more information see the documentation for the http://apache.org/xml/properties/schema/external-schemaLocation property.</attribute>
+          <attribute key="http://apache.org/xml/properties/input-buffer-size" type="int"> The size of the input buffer in the readers. This determines how many bytes to read for each chunk.  Some tests indicate that a bigger buffer size can improve the parsing performance for relatively large files. The default buffer size in Xerces is 2K. This would give a good performance for small documents (less than 10K). For documents larger than 10K, specifying the buffer size to 4K or 8K will significantly improve the performance. But it's not recommended to set it to a value larger than 16K. For really tiny documents (1K, for example), you can also set it to a value less than 2K, to get the best performance.   There are some conditions where the size of the parser's internal buffers may be increased beyond the size specified for the input buffer. This would happen in places where the text in the document cannot be split, for instance if the document contains a name which is longer than the input buffer.</attribute>
+	    </attributes>
+    </input>
+ </extension>
+ <extension point="org.eclipse.ui.editors.templates">
+		<include file="templates/file_templates.xml"/>
+    </extension>
+</plugin>

@@ -1,0 +1,26 @@
+INFO  13:04:43.538 [main] (Pleiades) Pleiades 構成保管パス: C:\eclipse\configuration\jp.sourceforge.mergedoc.pleiades
+INFO  13:04:43.585 [pool-2-thread-1] (EclipseFiles) 前回のプラグイン更新最終時刻: 2014-10-21 12:06:33
+INFO  13:04:43.585 [pool-2-thread-1] (EclipseFiles) 今回のプラグイン更新最終時刻: 2014-10-21 13:04:23
+INFO  13:04:43.585 [pool-2-thread-1] (LauncherEclipseTransformer) Eclipse プラグインの更新が検出されたため、強制的に -clean モードで起動します。
+INFO  13:04:43.616 [main] (PleiadesConfig) Pleiades 構成ファイルをロードしました。
+INFO  13:04:43.616 [main] (Pleiades) Eclipse AOP 起動トランスフォーマーを開始します。Pleiades 起動オプション:null
+INFO  13:04:43.616 [pool-1-thread-5] (PropertySet) load  0.000 秒 -      5 エントリー org.eclipse.ui.ide.prefs
+INFO  13:04:43.616 [pool-1-thread-2] (PropertySet) load  0.002 秒 -     67 エントリー translation-exclude-package.properties
+INFO  13:04:43.616 [pool-1-thread-3] (PropertySet) load  0.009 秒 -    350 エントリー translation-regex.properties
+INFO  13:04:43.632 [pool-1-thread-3] (PropertySet) load  0.001 秒 -     16 エントリー translation-regex-through.properties
+INFO  13:04:43.678 [main] (LauncherEclipseTransformer) transform: org.eclipse.equinox.launcher.Main
+INFO  13:04:43.725 [main] (LauncherTransformer) アプリケーションの起動を開始しました。-clean:true
+INFO  13:04:43.725 [main] (CacheFiles) すべてのキャッシュ・ファイルをクリアしました。
+INFO  13:04:43.725 [main] (LauncherTransformer) Pleiades AOP 翻訳トランスフォーマーを開始します。
+INFO  13:04:43.725 [pool-1-thread-3] (ExcludeClassNameCache) exclude-class.list が存在しません。
+INFO  13:04:43.725 [pool-1-thread-3] (TransformedClassCache) transformed-class.cache が存在しません。
+INFO  13:04:44.380 [pool-1-thread-3] (AbstractTranslationDictionary$1) load  0.574 秒 - 117054 エントリー translation.properties
+INFO  13:04:44.380 [pool-1-thread-3] (AbstractTranslationDictionary$1) load  0.007 秒 - 117168 エントリー translation-multibytes-key.properties
+INFO  13:04:44.396 [pool-1-thread-3] (ValueHashPropertySet) load  0.002 秒 -    114 エントリー translation-multibytes-key.properties
+INFO  13:04:49.124 [main] (LauncherEclipseTransformer) transform: org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor
+INFO  13:04:49.126 [Framework Event Dispatcher: Equinox Container: 003b1864-d758-0014-1867-e407bc5768f5] (LauncherEclipseTransformer) transform: org.eclipse.ui.internal.Workbench
+INFO  13:04:49.430 [main] (LauncherEclipseTransformer) transform: org.eclipse.core.resources.ResourcesPlugin
+INFO  13:04:50.711 [main] (LauncherEclipseTransformer) transform: org.eclipse.ui.splash.BasicSplashHandler$AbsolutePositionProgressMonitorPart
+INFO  13:04:50.804 [Thread-7] (LauncherEclipseTransformer) transform: org.eclipse.ui.internal.WorkbenchWindow
+INFO  13:04:50.804 [Thread-7] (LauncherTransformer) Pleiades AOP 起動トランスフォーマーを停止します。
+INFO  13:04:55.540 [main] (Analyses) Eclipse 始動完了 - 始動時間: 11.799 秒。-clean:true

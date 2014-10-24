@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0
+Created-By: 1.5.0_06-b05 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+Bundle-Name: Orangevolt XSLT Plug-in
+Bundle-SymbolicName: com.orangevolt.eclipse.xslt; singleton:=true
+Bundle-Version: 1.0.7
+Bundle-ClassPath: orangevoltxslt.jar,lib/xalan-2.7.jar,lib/serializer.
+ jar
+Bundle-Activator: com.orangevolt.xslt.XSLTPlugin
+Bundle-Vendor: www.orangevolt.com
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
+ re.resources,org.eclipse.debug.core,org.eclipse.debug.ui,org.eclipse.
+ jdt.debug.ui,org.eclipse.ui.ide,org.eclipse.core.variables,org.eclips
+ e.jface.text,org.eclipse.ui.console,org.eclipse.ui.workbench.textedit
+ or,org.eclipse.wst.sse.core,org.eclipse.ui.views,org.eclipse.wst.sse.
+ ui,org.eclipse.jdt.ui,org.eclipse.wst.xml.core,org.eclipse.wst.xml.ui
+ ,org.eclipse.wst.common.ui,org.eclipse.ui.editors,org.eclipse.platfor
+ m,org.eclipse.jdt.core,org.eclipse.ant.core,org.eclipse.ui.externalto
+ ols,org.eclipse.ant.ui,org.eclipse.wst.common.ui,org.eclipse.jdt.laun
+ ching
+Eclipse-LazyStart: true
+Export-Package: com.orangevolt.xslt.util
+
