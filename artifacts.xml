@@ -3,14 +3,14 @@
 <repository name='Bundle pool' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.system' value='true'/>
-    <property name='p2.timestamp' value='1413869276160'/>
+    <property name='p2.timestamp' value='1414728037847'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='514'>
+  <artifacts size='523'>
     <artifact classifier='osgi.bundle' id='org.eclipse.jetty.continuation' version='8.1.14.v20131031'>
       <properties size='1'>
         <property name='download.size' value='27561'/>
@@ -706,6 +706,14 @@
         <property name='artifact.folder' value='true'/>
       </repositoryProperties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.wb.css.feature' version='1.7.0.r44x201405021453'>
+      <properties size='1'>
+        <property name='download.size' value='25645'/>
+      </properties>
+      <repositoryProperties size='1'>
+        <property name='artifact.folder' value='true'/>
+      </repositoryProperties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.eclipse.equinox.jsp.jasper.registry' version='1.0.300.v20130327-1442'>
       <properties size='1'>
         <property name='download.size' value='12190'/>
@@ -890,6 +898,14 @@
         <property name='download.size' value='358204'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.github.eclipsecolortheme.feature' version='1.0.0.201410260308'>
+      <properties size='1'>
+        <property name='download.size' value='6094'/>
+      </properties>
+      <repositoryProperties size='1'>
+        <property name='artifact.folder' value='true'/>
+      </repositoryProperties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='com.google.inject.multibindings' version='3.0.0.v201402270930'>
       <properties size='1'>
         <property name='download.size' value='42494'/>
@@ -1046,6 +1062,11 @@
     <artifact classifier='osgi.bundle' id='org.eclipse.m2e.refactoring' version='1.5.0.20140606-0033'>
       <properties size='1'>
         <property name='download.size' value='76586'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.wb.core.databinding.xml' version='1.7.0.r44x201405021458'>
+      <properties size='1'>
+        <property name='download.size' value='26598'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='org.eclipse.jetty.util' version='8.1.14.v20131031'>
@@ -1305,9 +1326,22 @@
         <property name='download.size' value='43670'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='edu.umd.cs.findbugs.plugin.eclipse' version='3.0.0.20140706-2cfb468'>
+      <properties size='1'>
+        <property name='download.size' value='5791945'/>
+      </properties>
+      <repositoryProperties size='1'>
+        <property name='artifact.folder' value='true'/>
+      </repositoryProperties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.w3c.css.sac' version='1.3.1.v200903091627'>
       <properties size='1'>
         <property name='download.size' value='32952'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.wb.css' version='1.7.0.r44x201405021453'>
+      <properties size='1'>
+        <property name='download.size' value='213019'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='org.eclipse.jetty.servlet' version='8.1.14.v20131031'>
@@ -1489,6 +1523,11 @@
         <property name='download.size' value='93922'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.github.eclipsecolortheme' version='1.0.0.201410260308'>
+      <properties size='1'>
+        <property name='download.size' value='110222'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.tasks.index.ui' version='3.13.0.v20140704-0050'>
       <properties size='1'>
         <property name='download.size' value='29566'/>
@@ -1502,6 +1541,11 @@
     <artifact classifier='osgi.bundle' id='org.eclipse.jdt.junit' version='3.7.300.v20140418-0836'>
       <properties size='1'>
         <property name='download.size' value='426775'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.wb.core.xml' version='1.7.0.r44x201405021458'>
+      <properties size='1'>
+        <property name='download.size' value='491169'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='org.eclipse.emf.transaction' version='1.1.2.v200710151610-208a8s733G4A3F5H88'>
@@ -1766,6 +1810,14 @@
       <properties size='1'>
         <property name='download.size' value='205286'/>
       </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='edu.umd.cs.findbugs.plugin.eclipse' version='3.0.0.20140706-2cfb468'>
+      <properties size='1'>
+        <property name='download.size' value='1818'/>
+      </properties>
+      <repositoryProperties size='1'>
+        <property name='artifact.folder' value='true'/>
+      </repositoryProperties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='org.eclipse.equinox.p2.discovery.feature' version='1.0.200.v20140512-1802'>
       <properties size='1'>
@@ -2379,6 +2431,14 @@
       <properties size='1'>
         <property name='download.size' value='28124'/>
       </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.wb.core.xml.feature' version='1.7.0.r44x201405021458'>
+      <properties size='1'>
+        <property name='download.size' value='31671'/>
+      </properties>
+      <repositoryProperties size='1'>
+        <property name='artifact.folder' value='true'/>
+      </repositoryProperties>
     </artifact>
     <artifact classifier='osgi.bundle' id='org.eclipse.ant.ui' version='3.5.500.v20140521-1557'>
       <properties size='1'>

@@ -1,0 +1,84 @@
+Manifest-Version: 1.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Built-By: genie.tools.pdt
+Bundle-SymbolicName: org.eclipse.php.help; singleton:=true
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/pdt/or
+ g.eclipse.pdt.git;path="plugins/org.eclipse.php.help";commitId=07e31e
+ 65c0ec218c15b983063e1e124025a6c574
+Bundle-Activator: org.eclipse.php.help.Activator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.he
+ lp
+Export-Package: org.eclipse.php.help,org.eclipse.php.help.util
+Bundle-Version: 3.3.1.201409161013
+Build-Jdk: 1.7.0_51
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Eclipse.org
+Bundle-Name: PDT Help Plug-in
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Bundle-ManifestVersion: 2
+
+Name: html/pdt_table_of_contents.htm
+SHA1-Digest: 8gALov0gPpa70mCUF8/uyPJUQe0=
+
+Name: org/eclipse/php/help/util/template.txt
+SHA1-Digest: ZH6pfwAcs43e7ZmYidyavDuOhSE=
+
+Name: about.html
+SHA1-Digest: WMI/4olA6hRuXIogXvL125XBLi4=
+
+Name: intro/images/php-hover.png
+SHA1-Digest: kmHyYcWunPLIj7LKgb41mnaFjZk=
+
+Name: helpContexts.xml
+SHA1-Digest: yLBl2NMMjMrILcRZPrNOTJCG7Kw=
+
+Name: toc.xml
+SHA1-Digest: O+T4tY4KZQq5n29YOt40b3swMvg=
+
+Name: META-INF/maven/org.eclipse.php/org.eclipse.php.help/pom.xml
+SHA1-Digest: VbD3jnX2+van7Vw5vOr8UYJvmek=
+
+Name: intro/tutorialsExtensionContent.xml
+SHA1-Digest: rmmPe1kiKvxlDY0JjevpZDY8u5k=
+
+Name: intro/css/whatsnew.css
+SHA1-Digest: 1LEb4XO8zIFoGJwU3rkSG3zQpGk=
+
+Name: pom.xml
+SHA1-Digest: VbD3jnX2+van7Vw5vOr8UYJvmek=
+
+Name: intro/whatsnewExtensionContent.xml
+SHA1-Digest: XZQPPiMeJ06mr+i11YsjzPr65/Q=
+
+Name: META-INF/maven/org.eclipse.php/org.eclipse.php.help/pom.properti
+ es
+SHA1-Digest: w9S/afeRd4jzZS4wRSqI1sGPIWc=
+
+Name: org/eclipse/php/help/util/HelpContextGenerator.class
+SHA1-Digest: 9bwtsIy1ObPrgOx7Ce1k/QP/uz0=
+
+Name: maintoc.xml
+SHA1-Digest: CvpRNAwwnLO9PSMn/UZR4Yy9NSU=
+
+Name: customBuildCallbacks.xml
+SHA1-Digest: tFLiF+gG47b3+V+2i6cl+RBEk9Y=
+
+Name: intro/css/tutorials.css
+SHA1-Digest: OWmmhW6aPH9uV3ZSIXATHrQ8v0s=
+
+Name: org/eclipse/php/help/Activator.class
+SHA1-Digest: xCkD0LJBq30C0CJdEDKKiCc8+I0=
+
+Name: plugin.xml
+SHA1-Digest: 4yByyNR51kzBH8fJM65vtBDlikE=
+
+Name: intro/css/overview.css
+SHA1-Digest: 3yVNwjTW7Ld67YaBea81i0PloVw=
+
+Name: intro/images/php.png
+SHA1-Digest: 3/HVDO1qToO3vSaqy/Va4ROmAA4=
+
+Name: intro/overviewExtensionContent.xml
+SHA1-Digest: Gz8qz4GyPyyAknsgyqxvpZY+CCM=
+

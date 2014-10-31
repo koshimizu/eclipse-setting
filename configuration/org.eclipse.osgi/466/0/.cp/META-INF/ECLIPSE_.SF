@@ -1,0 +1,69 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: zjH7mWYnKMR3wg82S47AoIlwIcQ=
+Created-By: 1.6.0 (IBM Corporation)
+SHA1-Digest-Manifest-Main-Attributes: Hw45QZK8FK+paZGHKwoP5ZImk9A=
+
+Name: html/pdt_table_of_contents.htm
+SHA1-Digest: VRgla985hIGJk6rQK2lWOXvyVUw=
+
+Name: org/eclipse/php/help/util/template.txt
+SHA1-Digest: QN77esRiCUyrVHH403r/tlihf4I=
+
+Name: about.html
+SHA1-Digest: /w2Rjlx2ytp0+10CIomBmJiWUkU=
+
+Name: intro/images/php-hover.png
+SHA1-Digest: JKSevOuknwMgn5DNR+o5b8Y0E8g=
+
+Name: helpContexts.xml
+SHA1-Digest: cX1nFRugDa7VgQr7vvRJfWISblo=
+
+Name: toc.xml
+SHA1-Digest: +Z8aaWBkwwyBXRdl5trGmRZj+08=
+
+Name: META-INF/maven/org.eclipse.php/org.eclipse.php.help/pom.xml
+SHA1-Digest: fK4nxb65kVhQjlgwo9FcTjjmISI=
+
+Name: intro/tutorialsExtensionContent.xml
+SHA1-Digest: J7vtemjl9/m5ord7zYSv2bliEZY=
+
+Name: intro/css/whatsnew.css
+SHA1-Digest: Cjlrb3hQK6QW4Eqn9LWzrSzZNog=
+
+Name: pom.xml
+SHA1-Digest: y8vSNce2qKS+BqX456DvAFX7LrI=
+
+Name: intro/whatsnewExtensionContent.xml
+SHA1-Digest: TY8Pb3/w77rOAbnGidoo1XVlphs=
+
+Name: maintoc.xml
+SHA1-Digest: 5spglq7eiMLX16Ukn8RuyNSFSFY=
+
+Name: org/eclipse/php/help/util/HelpContextGenerator.class
+SHA1-Digest: kYPtdRT4T5OgPWI0zzYoUO+xBWk=
+
+Name: META-INF/maven/org.eclipse.php/org.eclipse.php.help/pom.properti
+ es
+SHA1-Digest: 74p6/9VhC1T6LeSgxeR1lwRNyUQ=
+
+Name: customBuildCallbacks.xml
+SHA1-Digest: hKtpYSM1LZSD8nKWAlezkwy7Sak=
+
+Name: org/eclipse/php/help/Activator.class
+SHA1-Digest: 7+h1n9LsDfhHndHHwIBabzNi45g=
+
+Name: intro/css/tutorials.css
+SHA1-Digest: ZOWej2qGMpQYu74EZcRfca+l6mY=
+
+Name: plugin.xml
+SHA1-Digest: rOvhBCO5rbr5+6dBfGydxw6ywog=
+
+Name: intro/css/overview.css
+SHA1-Digest: G986AI1on7t2r0WcJdlBL1GI3l0=
+
+Name: intro/overviewExtensionContent.xml
+SHA1-Digest: qSY+lhvpnlE7aI2kk3Ibcns5kVQ=
+
+Name: intro/images/php.png
+SHA1-Digest: nJ4pkgNVrY5hGCmgPWKRQJAOimI=
+

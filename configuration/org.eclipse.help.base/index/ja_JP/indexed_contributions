@@ -1,5 +1,5 @@
 #This is a generated file; do not edit.
-#Tue Oct 21 13:09:14 JST 2014
+#Fri Oct 31 11:20:20 JST 2014
 org.eclipse.wst.sse.doc.user=org.eclipse.wst.sse.doc.user\n1.1.100.v201208081537
 com.orangevolt.eclipse.xslt.doc=com.orangevolt.eclipse.xslt.doc\n1.0.7
 org.eclipse.help.base=org.eclipse.help.base\n4.0.200.v20140925-0400
@@ -11,9 +11,12 @@ org.eclipse.recommenders.rcp=org.eclipse.recommenders.rcp\n2.1.9.v20140917-1240
 org.eclipse.jdt=org.eclipse.jdt\n3.10.0.v20140925-0400
 org.eclipse.jdt.doc.user=org.eclipse.jdt.doc.user\n3.10.1.v20140827-1504
 org.eclipse.egit.doc=org.eclipse.egit.doc\n3.4.1.201406201815-r
+org.eclipse.php.help=org.eclipse.php.help\n3.3.1.201409161013
+org.rubypeople.rdt.branding=org.rubypeople.rdt.branding\n0.9.1.200711131528NGT
 org.eclipse.ui.cheatsheets=org.eclipse.ui.cheatsheets\n3.4.200.v20131227-1524
 org.eclipse.wst.xsdeditor.doc.user=org.eclipse.wst.xsdeditor.doc.user\n1.0.800.v201208081537
 org.eclipse.ui.intro=org.eclipse.ui.intro\n3.4.200.v20130326-1254
+org.rubypeople.rdt.doc.user=org.rubypeople.rdt.doc.user\n0.9.1.200711131528NGT
 org.eclipse.help=org.eclipse.help\n3.6.0.v20130326-1254
 org.eclipse.mylyn.wikitext.help.ui=org.eclipse.mylyn.wikitext.help.ui\n2.2.0.v20140902-2320
 org.eclipse.epp.mpc.help.ui=org.eclipse.epp.mpc.help.ui\n1.3.1.v20140820-1706
