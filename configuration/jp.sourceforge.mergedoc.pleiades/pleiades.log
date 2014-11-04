@@ -1,26 +1,20 @@
-INFO  11:31:55.431 [main] (Pleiades) Pleiades 構成保管パス: C:\eclipse\configuration\jp.sourceforge.mergedoc.pleiades
-INFO  11:31:55.478 [pool-2-thread-1] (EclipseFiles) 前回のプラグイン更新最終時刻: 2014-10-31 10:52:36
-INFO  11:31:55.494 [pool-2-thread-1] (EclipseFiles) 今回のプラグイン更新最終時刻: 2014-10-31 11:29:14
-INFO  11:31:55.494 [pool-2-thread-1] (LauncherEclipseTransformer) Eclipse プラグインの更新が検出されたため、強制的に -clean モードで起動します。
-INFO  11:31:55.509 [main] (PleiadesConfig) Pleiades 構成ファイルをロードしました。
-INFO  11:31:55.509 [main] (Pleiades) Eclipse AOP 起動トランスフォーマーを開始します。Pleiades 起動オプション:null
-INFO  11:31:55.509 [pool-1-thread-5] (PropertySet) load  0.000 秒 -      5 エントリー org.eclipse.ui.ide.prefs
-INFO  11:31:55.509 [pool-1-thread-2] (PropertySet) load  0.002 秒 -     67 エントリー translation-exclude-package.properties
-INFO  11:31:55.525 [pool-1-thread-3] (PropertySet) load  0.014 秒 -    350 エントリー translation-regex.properties
-INFO  11:31:55.541 [pool-1-thread-3] (PropertySet) load  0.002 秒 -     16 エントリー translation-regex-through.properties
-INFO  11:31:55.587 [main] (LauncherEclipseTransformer) transform: org.eclipse.equinox.launcher.Main
-INFO  11:31:55.634 [main] (LauncherTransformer) アプリケーションの起動を開始しました。-clean:true
-INFO  11:31:55.634 [main] (CacheFiles) すべてのキャッシュ・ファイルをクリアしました。
-INFO  11:31:55.650 [main] (LauncherTransformer) Pleiades AOP 翻訳トランスフォーマーを開始します。
-INFO  11:31:55.650 [pool-1-thread-3] (ExcludeClassNameCache) exclude-class.list が存在しません。
-INFO  11:31:55.650 [pool-1-thread-3] (TransformedClassCache) transformed-class.cache が存在しません。
-INFO  11:31:56.211 [pool-1-thread-3] (AbstractTranslationDictionary$1) load  0.479 秒 - 117054 エントリー translation.properties
-INFO  11:31:56.227 [pool-1-thread-3] (AbstractTranslationDictionary$1) load  0.003 秒 - 117168 エントリー translation-multibytes-key.properties
-INFO  11:31:56.227 [pool-1-thread-3] (ValueHashPropertySet) load  0.003 秒 -    114 エントリー translation-multibytes-key.properties
-INFO  11:32:01.680 [main] (LauncherEclipseTransformer) transform: org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor
-INFO  11:32:01.680 [Framework Event Dispatcher: Equinox Container: 20c76b15-a660-0014-1b1b-ff3086ef4d16] (LauncherEclipseTransformer) transform: org.eclipse.ui.internal.Workbench
-INFO  11:32:01.945 [main] (LauncherEclipseTransformer) transform: org.eclipse.core.resources.ResourcesPlugin
-INFO  11:32:03.405 [main] (LauncherEclipseTransformer) transform: org.eclipse.ui.splash.BasicSplashHandler$AbsolutePositionProgressMonitorPart
-INFO  11:32:03.498 [Thread-7] (LauncherEclipseTransformer) transform: org.eclipse.ui.internal.WorkbenchWindow
-INFO  11:32:03.514 [Thread-7] (LauncherTransformer) Pleiades AOP 起動トランスフォーマーを停止します。
-INFO  11:32:10.193 [main] (Analyses) Eclipse 始動完了 - 始動時間: 14.528 秒。-clean:true
+INFO  09:18:32.892 [main] (Pleiades) Pleiades 構成保管パス: C:\eclipse\configuration\jp.sourceforge.mergedoc.pleiades
+INFO  09:18:32.986 [main] (PleiadesConfig) Pleiades 構成ファイルをロードしました。
+INFO  09:18:32.986 [main] (Pleiades) Eclipse AOP 起動トランスフォーマーを開始します。Pleiades 起動オプション:null
+INFO  09:18:32.986 [pool-1-thread-2] (PropertySet) load  0.002 秒 -     67 エントリー translation-exclude-package.properties
+INFO  09:18:33.001 [pool-1-thread-5] (PropertySet) load  0.002 秒 -      5 エントリー org.eclipse.ui.ide.prefs
+INFO  09:18:33.001 [pool-1-thread-3] (PropertySet) load  0.010 秒 -    350 エントリー translation-regex.properties
+INFO  09:18:33.017 [pool-2-thread-1] (EclipseFiles) 前回のプラグイン更新最終時刻: 2014-10-31 13:14:06
+INFO  09:18:33.017 [pool-1-thread-3] (PropertySet) load  0.001 秒 -     16 エントリー translation-regex-through.properties
+INFO  09:18:33.017 [pool-2-thread-1] (EclipseFiles) 今回のプラグイン更新最終時刻: 2014-10-31 13:14:06
+INFO  09:18:33.110 [main] (LauncherEclipseTransformer) transform: org.eclipse.equinox.launcher.Main
+INFO  09:18:33.188 [main] (LauncherTransformer) アプリケーションの起動を開始しました。-clean:false
+INFO  09:18:33.188 [main] (LauncherTransformer) Pleiades AOP 起動トランスフォーマーを停止します。
+INFO  09:18:33.204 [main] (LauncherTransformer) Pleiades AOP 翻訳トランスフォーマーを開始します。
+INFO  09:18:33.235 [pool-1-thread-3] (ExcludeClassNameCache) load   16925 エントリー exclude-class.list
+INFO  09:18:33.376 [pool-1-thread-3] (TransformedClassCache) load      982 エントリー transformed-class.cache
+INFO  09:18:33.578 [pool-1-thread-3] (ValueHashPropertySet) load  0.187 秒 -  24102 エントリー translation-cache.properties.zip
+INFO  09:18:33.594 [pool-1-thread-3] (CachePropertySet) load  0.014 秒 -   3242 エントリー mnemonic-cache.properties.zip
+INFO  09:18:44.289 [main] (Analyses) Eclipse 始動完了 - 始動時間: 10.913 秒。-clean:false
+INFO  09:19:38.999 [main] (AbstractTranslationDictionary$1) load  0.328 秒 - 117054 エントリー translation.properties
+INFO  09:19:38.999 [main] (AbstractTranslationDictionary$1) load  0.003 秒 - 117168 エントリー translation-multibytes-key.properties
